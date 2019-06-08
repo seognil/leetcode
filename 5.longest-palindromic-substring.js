@@ -8,6 +8,7 @@
  * @return {string}
  */
 var longestPalindrome = function(s) {
+  // TODO, it's brute, try Manacher  // seognil LC 2019/06/08
   if (!s.length) return '';
   let max = s[0];
   for (let i = 0; i < s.length; i++) {
