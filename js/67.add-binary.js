@@ -17,15 +17,15 @@ var addBinary = function(a, b) {
   sa -= l;
   sb -= l;
 
-  let result = [];
+  let result = '';
 
   let carry = 0;
   for (let i = l - 1; i >= 0; i--) {
     let s = ((a[sa + i] - 0) | 0) + ((b[sb + i] - 0) | 0) + carry;
     carry = s >> 1;
-    result.unshift(s % 2);
+    result = Number(s % 2) + result;
   }
-  if (carry) result.unshift(1);
+  if (carry) result = '1' + result;
 
-  return result.join('');
+  return result;
 };
