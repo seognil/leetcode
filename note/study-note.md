@@ -25,7 +25,7 @@ So, we should tend to use `string way` in the future. But remember it varies bet
     s,
     str;
 
-  // * ----------------
+  // * ---------------- string way
 
   s = Date.now();
   str = '';
@@ -34,7 +34,7 @@ So, we should tend to use `string way` in the future. But remember it varies bet
   }
   console.warn('string way', Date.now() - s);
 
-  // * ----------------
+  // * ---------------- array way
 
   s = Date.now();
   const sArr = [];
