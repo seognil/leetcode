@@ -204,6 +204,19 @@ const myProgress2 = [
   },
 ];
 
+const myProgress3 = [
+  {
+    data: '07/11/19',
+    cate: 'greedy',
+    res: [
+      [455, ['80 ms', '93.64 %', '37.1 MB', '98.55 %']],
+      [435, ['68 ms', '77.71 %', '36.2 MB', '41.67 %']],
+      [134, ['52 ms', '94.79 %', '33.8 MB', '93.01 %']],
+      [122, ['56 ms', '86.65 %', '35.4 MB', '44.89 %']],
+    ],
+  },
+];
+
 const result = require('../helper/result');
 
 result(`
