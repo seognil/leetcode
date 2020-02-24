@@ -1,20 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
+    "module": "CommonJS",
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "watch": true,
+    "watch": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.*",
-    "**/*.spec.*"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/*.test.*", "**/*.spec.*"]
 }
