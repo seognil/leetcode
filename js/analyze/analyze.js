@@ -219,6 +219,10 @@ const myProgress3 = [
 
 const result = require('../helper/result');
 
+// 622 ['100 ms', '86.04 %', '41.3 MB', '86.56 %']
+
+// 20 ['56 ms', '84.27 %', '34 MB', '57.31 %']
+
 result(`
 
 

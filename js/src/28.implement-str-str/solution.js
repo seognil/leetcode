@@ -9,7 +9,6 @@
  * @return {number}
  */
 var strStr = function(haystack, needle) {
-
   // TODO it's simple loop, use kmp // seognil LC 2019/06/08
   const lh = haystack.length,
     ln = needle.length;
