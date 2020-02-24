@@ -3,5 +3,4 @@ module.exports = {
   testEnvironment: 'node',
   verbose: true,
   collectCoverage: true,
-  testPathIgnorePatterns: ['case.test.*'],
 };

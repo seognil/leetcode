@@ -3,7 +3,7 @@
     "format:all": "eslint --fix . && prettier --write '{,!(node_modules|dist|build|coverage)/**/}*.*' '!*.{log,lock,map}' '!**/.*' '!package-lock.json'",
     "format:staged": "pretty-quick --staged && lint-staged",
     "build": "tsc -p tsconfig-build.json",
-    "test": "jest --watchAll"
+    "test": "jest --watch"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --fix"
