@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=66 lang=javascript
  *
@@ -9,10 +7,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number[]} digits
  * @return {number[]}
  */
-const plusOne = (digits) => {
+const plusOne = (digits: number[]): number[] => {
   // * inplace
+
   let len = digits.length,
     carry = 0;
+
   digits[len - 1] += 1;
   for (let i = len - 1; i >= 0; i--) {
     const e = digits[i];
@@ -20,7 +20,10 @@ const plusOne = (digits) => {
     carry = sum >= 10 ? 1 : 0;
     digits[i] = sum % 10;
   }
+
   carry && digits.unshift(1);
+
   return digits;
 };
-exports.plusOne = plusOne;
+
+export { plusOne };

@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=118 lang=javascript
  *
@@ -9,12 +7,15 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number} numRows
  * @return {number[][]}
  */
-const generate = (numRows) => {
-  const result = Array.from({ length: numRows }, () => []);
+const generate = (numRows: number): number[][] => {
+  const result: number[][] = Array.from({ length: numRows }, () => []);
+
   for (let i = 0; i < numRows; i++) {
     const curRow = result[i];
     curRow[0] = curRow[i] = 1;
+
     if (i < 2) continue;
+
     let prevRow = result[i - 1];
     for (let j = 1; j < i; j++) {
       curRow[j] = prevRow[j] + prevRow[j - 1];
@@ -22,4 +23,5 @@ const generate = (numRows) => {
   }
   return result;
 };
-exports.generate = generate;
+
+export { generate };

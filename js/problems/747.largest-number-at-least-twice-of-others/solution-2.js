@@ -10,19 +10,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @return {number}
  */
 const dominantIndex = (nums) => {
-  if (!nums.length) return -1;
-  let max = nums[0],
-    maxi = 0;
-  for (let i = 1; i < nums.length; i++) {
-    const e = nums[i];
-    if (e > max) {
-      max = e;
-      maxi = i;
-    }
-  }
-  for (let i = 0; i < nums.length; i++) {
-    if (i !== maxi && nums[i] * 2 > max) return -1;
-  }
-  return maxi;
+  if (nums.length < 1) return -1;
+  // * more functional
+  const [max, indexOfMax] = nums.reduce(
+    ([max, indexOfMax], e, i) => (e > max ? [e, i] : [max, indexOfMax]),
+    [nums[0], 0],
+  );
+  const matchRule2 = nums.every((e, i) => i == indexOfMax || max >= e * 2);
+  return matchRule2 ? indexOfMax : -1;
 };
 exports.dominantIndex = dominantIndex;

@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=747 lang=javascript
  *
@@ -9,10 +7,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number[]} nums
  * @return {number}
  */
-const dominantIndex = (nums) => {
+const dominantIndex = (nums: number[]): number => {
   if (!nums.length) return -1;
+
   let max = nums[0],
     maxi = 0;
+
   for (let i = 1; i < nums.length; i++) {
     const e = nums[i];
     if (e > max) {
@@ -20,9 +20,12 @@ const dominantIndex = (nums) => {
       maxi = i;
     }
   }
+
   for (let i = 0; i < nums.length; i++) {
     if (i !== maxi && nums[i] * 2 > max) return -1;
   }
+
   return maxi;
 };
-exports.dominantIndex = dominantIndex;
+
+export { dominantIndex };

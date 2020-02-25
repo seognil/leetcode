@@ -12,11 +12,14 @@
  */
 const twoSum = function(nums: number[], target: number): number[] {
   const map: Record<string, number> = {};
+
   nums.forEach((e, i) => (map[e] = i));
+
   for (let i = 0; i < nums.length; i++) {
     const j = map[target - nums[i]];
     if (j && i !== j) return [i, j];
   }
+
   return [];
 };
 // @lc code=end

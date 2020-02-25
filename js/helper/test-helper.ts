@@ -1,10 +1,13 @@
 import path from 'path';
 import glob from 'glob';
-import { curry } from 'ramda';
+import { curry, clone } from 'ramda';
 
 type Input = any[];
 type Output = any;
-export type TestCase<I = Input, O = Output> = [I, O];
+export type TestCase<I = Input, O = Output> = {
+  input: I;
+  output: O;
+};
 export type TestCases<I = Input, O = Output> = TestCase<I, O>[];
 
 type Path = string;
@@ -12,6 +15,9 @@ type Path = string;
 type Solver = Function;
 type SolverFilePath = string;
 type SolverFilePaths = SolverFilePath[];
+
+export const wrapSingleInput = <I, O>(cases: TestCases<I, O>) =>
+  cases.map(({ input, output }) => ({ input: [input], output }));
 
 export const getProblemName = (currentPath: Path) => path.basename(currentPath);
 
@@ -31,14 +37,21 @@ export const makeTestRunner = (dir: Path) => {
     return output.default || output;
   };
 
-  const singleTestRunner = (
-    testCases: TestCases,
-    solver: Solver,
-    title: string = solver.name || 'test',
-  ) => {
-    test(`${problemName} - ${title}`, () => {
-      testCases.forEach(([input, output]) => {
-        expect(solver(...input)).toEqual(output);
+  const singleTestRunner = (testCases: TestCases, solver: Solver, fnName: string = solver.name) => {
+    clone(testCases).forEach(({ input, output }, index) => {
+      const inputBackup = clone(input);
+      const ourResult = solver(...input);
+
+      const fmt = (d: any) => JSON.stringify(d);
+      const printInput = fmt(input).replace(/^\[(.*)\]$/, '$1');
+      const printInputBackup = fmt(inputBackup).replace(/^\[(.*)\]$/, '$1');
+      const printResult = fmt(output);
+      const printOurResult = fmt(ourResult);
+
+      const testTitle = `${index}: ${fnName}(${printInputBackup}) => ${printOurResult}; ${printResult}`;
+
+      test(testTitle, () => {
+        expect(ourResult).toEqual(output);
       });
     });
   };
