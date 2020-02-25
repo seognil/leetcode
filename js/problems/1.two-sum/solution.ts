@@ -21,4 +21,4 @@ const twoSum = function(nums: number[], target: number): number[] {
 };
 // @lc code=end
 
-export default twoSum;
+export { twoSum };

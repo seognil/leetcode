@@ -20,5 +20,4 @@ const twoSum = function(nums, target) {
   }
   return [];
 };
-// @lc code=end
-exports.default = twoSum;
+exports.twoSum = twoSum;

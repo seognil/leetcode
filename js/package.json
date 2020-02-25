@@ -3,7 +3,8 @@
     "format:all": "eslint --fix . && prettier --write '{,!(node_modules|dist|build|coverage)/**/}*.*' '!*.{log,lock,map}' '!**/.*' '!package-lock.json'",
     "format:staged": "pretty-quick --staged && lint-staged",
     "build": "tsc -p tsconfig-build.json",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "analyze": "ts-node analyze/analyze"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --fix"
@@ -20,6 +21,7 @@
     "@types/jest": "^25.1.3",
     "@types/node": "^13.7.4",
     "@types/prettier": "^1.19.0",
+    "@types/ramda": "^0.26.41",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "eslint": "^6.8.0",
@@ -28,6 +30,7 @@
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
+    "ramda": "^0.27.0",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.2"
   },

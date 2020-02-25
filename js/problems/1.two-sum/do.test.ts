@@ -1,8 +1,7 @@
 import { makeTestRunner, TestCases } from '../../helper/test-helper';
+import { twoSum } from './solution';
 
 const { testRunner } = makeTestRunner(__dirname);
-
-import './solution.ts';
 
 // * ------------------------------------------------
 
@@ -25,4 +24,4 @@ const cases: TestCases<Input, Output> = [
   ],
 ];
 
-testRunner(cases);
+testRunner(cases, twoSum, 'solution1');

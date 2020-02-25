@@ -217,14 +217,16 @@ const myProgress3 = [
   },
 ];
 
-// 1 ['56 ms', '85.36 %', '34.9 MB', '30.17 %']
+// 1 ['56 ms', '98.41 %', '35 MB', '42.45 %']
 
-const result = require('../helper/result');
+import { parseAccepted } from '../helper/parse-result';
 
 // 622 ['100 ms', '86.04 %', '41.3 MB', '86.56 %']
 
 // 20 ['56 ms', '84.27 %', '34 MB', '57.31 %']
 
-result(`
-
+parseAccepted(`
+29/29 cases passed (56 ms)
+Your runtime beats 98.41 % of javascript submissions
+Your memory usage beats 42.45 % of javascript submissions (35 MB)
 `);
