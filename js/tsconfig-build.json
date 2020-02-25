@@ -8,6 +8,6 @@
     "moduleResolution": "node",
     "watch": true
   },
-  "include": ["src"],
+  "include": ["problems"],
   "exclude": ["node_modules", "**/*.test.*", "**/*.spec.*"]
 }
