@@ -1,4 +1,6 @@
-import { testRunner, makeTestCases, makeTestCasesOfSingleInput } from '../../helper/test-helper'; // * ------------------------------------------------
+import { testRunner, makeTestCases, makeTestCasesOfSingleInput } from '../../helper/test-helper';
+
+// * ------------------------------------------------
 
 type Input = [string, string];
 type Output = string;
@@ -26,6 +28,8 @@ const cases = makeTestCases<Input, Output>([
     output: '0',
   },
 ]);
+
+// * ------------------------------------------------
 
 import { addBinary } from './solution';
 testRunner(cases, addBinary);

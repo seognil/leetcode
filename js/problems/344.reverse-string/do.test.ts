@@ -1,4 +1,6 @@
-import { testRunner, makeTestCases, makeTestCasesOfSingleInput } from '../../helper/test-helper'; // * ------------------------------------------------
+import { testRunner, makeTestCases, makeTestCasesOfSingleInput } from '../../helper/test-helper';
+
+// * ------------------------------------------------
 
 type Input = string[];
 type Output = string[];
@@ -22,6 +24,8 @@ const cases = makeTestCasesOfSingleInput<Input, Output>([
     output: ['a'],
   },
 ]);
+
+// * ------------------------------------------------
 
 import { reverseString } from './solution';
 testRunner(cases, reverseString);
