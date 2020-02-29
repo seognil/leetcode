@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "tsc-watch -p tsconfig-build.json --onFirstSuccess 'npm run start-after-first-compile'",
-    "start-after-first-compile": "pretty-quick && jest --watch",
+    "start": "tsc-watch -p tsconfig-build.json --onSuccess 'pretty-quick' --onFirstSuccess 'jest --watch'",
     "format:all": "eslint --fix . && prettier --write '{,!(node_modules|dist|build|coverage)/**/}*.*' '!*.{log,lock,map}' '!**/.*' '!package-lock.json'",
     "format:staged": "pretty-quick --staged && lint-staged",
     "analyze": "ts-node analyze/analyze"
