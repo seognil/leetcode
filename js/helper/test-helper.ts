@@ -1,78 +1,43 @@
-import path from 'path';
-import glob from 'glob';
-import { curry, clone } from 'ramda';
+import { clone } from 'ramda';
 
-type Input = any[];
+// * ---------------------------------------------------------------- testCases maker
+
+type Input = any;
 type Output = any;
-export type TestCase<I = Input, O = Output> = {
-  input: I;
-  output: O;
-};
-export type TestCases<I = Input, O = Output> = TestCase<I, O>[];
 
-type Path = string;
+type TestCase<I = Input, O = Output> = { input: I; output: O };
+type TestCases<I = Input, O = Output> = TestCase<I, O>[];
 
-type Solver = Function;
-type SolverFilePath = string;
-type SolverFilePaths = SolverFilePath[];
+type CaseMakerS = <I = Input, O = Output>(cases: TestCase<I, O>[]) => TestCases<I[], O>;
+type CaseMakerM = <I = Input, O = Output>(cases: TestCase<I, O>[]) => TestCases<I, O>;
 
-export const wrapSingleInput = <I, O>(cases: TestCases<I, O>) =>
+// * wrap single parameter input
+export const makeTestCasesOfSingleInput: CaseMakerS = (cases) =>
   cases.map(({ input, output }) => ({ input: [input], output }));
 
-export const getProblemName = (currentPath: Path) => path.basename(currentPath);
+export const makeTestCases: CaseMakerM = (cases) => cases;
 
-export const makeTestTitle = curry(
-  (currentPath: Path, solverName: string) => `${getProblemName(currentPath)} - ${solverName}`,
-);
+// * ---------------------------------------------------------------- singleTestRunner
 
-export const makeTestRunner = (dir: Path) => {
-  const currentPath = dir;
-  const problemName = path.basename(currentPath);
-  const solvers = glob.sync(path.join(currentPath, '/!(*.test).{js,ts}'));
-  const tsSolvers = solvers.filter((e) => e.match(/ts$/));
-  const jsSolvers = solvers.filter((e) => e.match(/js$/));
+type TestRunner = (testCases: TestCases, solver: Function, fnName?: string) => void;
 
-  const exportOf = (dir: Path) => {
-    const output = require(path.resolve(dir));
-    return output.default || output;
-  };
+export const testRunner: TestRunner = (testCases, solver, fnName = solver.name) => {
+  clone(testCases).forEach(({ input, output }, index) => {
+    const inputBackup = clone(input);
+    const rawResult = solver(...input);
 
-  const singleTestRunner = (testCases: TestCases, solver: Solver, fnName: string = solver.name) => {
-    clone(testCases).forEach(({ input, output }, index) => {
-      const inputBackup = clone(input);
-      const ourResult = solver(...input);
+    // * if return nothing, the data must be inplace modified
+    const ourResult = rawResult === undefined ? input[0] : rawResult;
 
-      const fmt = (d: any) => JSON.stringify(d);
-      const printInput = fmt(input).replace(/^\[(.*)\]$/, '$1');
-      const printInputBackup = fmt(inputBackup).replace(/^\[(.*)\]$/, '$1');
-      const printResult = fmt(output);
-      const printOurResult = fmt(ourResult);
+    const fmt = (d: any) => JSON.stringify(d);
+    const printInputBackup = fmt(inputBackup).replace(/^\[(.*)\]$/, '$1'); // * unwrap [input]
+    const printExpectResult = fmt(output);
+    const printOurResult = fmt(ourResult);
 
-      const testTitle = `${index}: ${fnName}(${printInputBackup}) => ${printOurResult}; ${printResult}`;
+    const testTitle = `${index}: ${fnName}(${printInputBackup}) => ${printOurResult};  ${printExpectResult}`;
 
-      test(testTitle, () => {
-        expect(ourResult).toEqual(output);
-      });
+    test(testTitle, () => {
+      expect(ourResult).toEqual(output);
     });
-  };
-
-  const autoTestRunner = (testCases: TestCases, solvers: SolverFilePaths) => {
-    solvers.forEach((solver) => {
-      const fn = exportOf(solver) as Solver;
-      const solverName = path.basename(solver);
-
-      singleTestRunner(testCases, fn, `${problemName} - ${solverName}`);
-    });
-  };
-
-  const makeAutoTester = (solvers: SolverFilePaths) => (testCases: TestCases) =>
-    autoTestRunner(testCases, solvers);
-
-  return {
-    testRunner: singleTestRunner,
-    autoTestRunner: makeAutoTester(tsSolvers),
-    tsTestRunner: makeAutoTester(tsSolvers),
-    jsTestRunner: makeAutoTester(jsSolvers),
-    allTestRunner: makeAutoTester([...tsSolvers, ...jsSolvers]),
-  };
+  });
 };

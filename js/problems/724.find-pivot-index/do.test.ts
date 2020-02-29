@@ -1,12 +1,11 @@
-import { makeTestRunner, TestCases, wrapSingleInput } from '../../helper/test-helper';
-const { testRunner } = makeTestRunner(__dirname);
+import { testRunner, makeTestCases, makeTestCasesOfSingleInput } from '../../helper/test-helper';
 
 // * ------------------------------------------------
 
-type SingleInput = number[];
+type Input = number[];
 type Output = number;
 
-const cases: TestCases<SingleInput[], Output> = wrapSingleInput([
+const cases = makeTestCasesOfSingleInput<Input, Output>([
   //
   {
     input: [1, 7, 3, 6, 5, 6],
@@ -29,6 +28,8 @@ const cases: TestCases<SingleInput[], Output> = wrapSingleInput([
     output: -1,
   },
 ]);
+
+// * ------------------------------------------------
 
 import { pivotIndex } from './solution';
 testRunner(cases, pivotIndex);
