@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=344 lang=javascript
  *
@@ -9,18 +7,22 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-const reverseString = function(s) {
+const reverseString = function(s: string[]): void {
   if (s.length < 2) return;
-  const swap = (str, i, j) => {
+
+  const swap = (str: string[], i: number, j: number) => {
     const t = str[i];
     str[i] = str[j];
     str[j] = t;
   };
+
   let i = 0;
   let j = s.length - 1;
+
   while (i < j) {
     swap(s, i, j);
     i++, j--;
   }
 };
-exports.reverseString = reverseString;
+
+export { reverseString };

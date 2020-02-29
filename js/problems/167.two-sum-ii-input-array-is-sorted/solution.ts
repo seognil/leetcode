@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=167 lang=javascript
  *
@@ -10,15 +8,18 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = (numbers, target) => {
+const twoSum = (numbers: number[], target: number): number[] => {
   let i = 0;
   let j = numbers.length - 1;
+
   while (i < j) {
     const sum = numbers[i] + numbers[j];
     if (sum === target) return [i + 1, j + 1];
     if (sum > target) j--;
     if (sum < target) i++;
   }
+
   return [];
 };
-exports.twoSum = twoSum;
+
+export { twoSum };
