@@ -218,15 +218,37 @@ const myProgress3 = [
 ];
 
 // 1 ['56 ms', '98.41 %', '35 MB', '42.45 %']
+// 20 ['56 ms', '84.27 %', '34 MB', '57.31 %']
 
 import { parseAccepted } from '../helper/parse-result';
 
-// 622 ['100 ms', '86.04 %', '41.3 MB', '86.56 %']
+const queueAndStack = [
+  //
+  [622, ['100 ms', '86.04 %', '41.3 MB', '86.56 %']],
+  [200, ['56 ms', '97.43 %', '37.6 MB', '41.94 %']],
+  [752, ['124 ms', '94.29 %', '42.3 MB', '100 %']],
+  [279],
 
-// 20 ['56 ms', '84.27 %', '34 MB', '57.31 %']
+  [155],
+  [20],
+  [739],
+  [150],
+
+  [200],
+  [133],
+  [494],
+  [94],
+
+  [232],
+  [225],
+  [394],
+  [733],
+  [542],
+  [841],
+];
 
 parseAccepted(`
-29/29 cases passed (56 ms)
-Your runtime beats 98.41 % of javascript submissions
-Your memory usage beats 42.45 % of javascript submissions (35 MB)
+43/43 cases passed (124 ms)
+Your runtime beats 94.29 % of javascript submissions
+Your memory usage beats 100 % of javascript submissions (42.3 MB)
 `);
