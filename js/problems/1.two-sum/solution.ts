@@ -11,16 +11,25 @@
  * @return {number[]}
  */
 const twoSum = function(nums: number[], target: number): number[] {
+  // * value index map
   const map: Record<string, number> = {};
 
   nums.forEach((e, i) => (map[e] = i));
 
-  for (let i = 0; i < nums.length; i++) {
-    const j = map[target - nums[i]];
-    if (j && i !== j) return [i, j];
+  let i, j;
+  i = j = 0;
+
+  while (i < nums.length) {
+    j = map[target - nums[i]];
+
+    // * found
+    if (j !== undefined && i !== j) break;
+
+    i++;
   }
 
-  return [];
+  // * exactly one solution, so no error checking
+  return [i, j];
 };
 // @lc code=end
 
