@@ -15,10 +15,11 @@ const twoSum = (numbers, target) => {
   let j = numbers.length - 1;
   while (i < j) {
     const sum = numbers[i] + numbers[j];
-    if (sum === target) return [i + 1, j + 1];
+    if (sum === target) break;
     if (sum > target) j--;
     if (sum < target) i++;
   }
-  return [];
+  return [i + 1, j + 1];
 };
 exports.twoSum = twoSum;
+//

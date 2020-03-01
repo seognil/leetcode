@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=27 lang=javascript
  *
@@ -10,7 +8,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number} val
  * @return {number}
  */
-const removeElement = (nums, val) => {
+const removeElement = (nums: number[], val: number): number => {
   const len = nums.length;
   let p1 = 0;
   for (let p2 = 0; p2 < len; p2++) {
@@ -21,4 +19,5 @@ const removeElement = (nums, val) => {
   }
   return p1;
 };
-exports.removeElement = removeElement;
+
+export { removeElement };

@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=209 lang=javascript
  *
@@ -10,25 +8,33 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number[]} nums
  * @return {number}
  */
-const minSubArrayLen = (s, nums) => {
+const minSubArrayLen = (s: number, nums: number[]): number => {
   if (!nums.length) return 0;
+
   const len = nums.length;
+
   let p1 = 0,
     p2 = -1,
     minLen = Infinity,
     sum = 0;
+
   while (p2 < len) {
     while (sum < s) {
       p2++;
       sum += nums[p2];
     }
+
     while (sum >= s) {
       minLen = Math.min(minLen, p2 - p1 + 1);
+
       if (minLen === 1) return 1;
+
       sum -= nums[p1];
       p1++;
     }
   }
+
   return minLen === Infinity ? 0 : minLen;
 };
-exports.minSubArrayLen = minSubArrayLen;
+
+export { minSubArrayLen };

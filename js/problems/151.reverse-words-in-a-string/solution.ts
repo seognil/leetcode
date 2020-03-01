@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=151 lang=javascript
  *
@@ -9,16 +7,19 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {string} s
  * @return {string}
  */
-const reverseWords = (s) => {
+const reverseWords = (s: string): string => {
   // * super easy js way
   // TODO try another method later // Seognil LC 2020/03/01
+
   return (
     s
       .split(' ')
+
       // * remove useless spaces
       .filter((e) => e)
       .reverse()
       .join(' ')
   );
 };
-exports.reverseWords = reverseWords;
+
+export { reverseWords };

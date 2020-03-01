@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
 /*
  * @lc app=leetcode id=189 lang=javascript
  *
@@ -10,11 +8,15 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @param {number} k
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-const rotate = (nums, k) => {
+const rotate = (nums: number[], k: number): void => {
   if (nums.length < 2) return;
+
   k = k % nums.length;
+
   // * unshift is costly, maybe O(kn) space?
-  while (k-- > 0) nums.unshift(nums.pop());
+  while (k-- > 0) nums.unshift(nums.pop()!);
+
   return;
 };
-exports.rotate = rotate;
+
+export { rotate };

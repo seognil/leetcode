@@ -11,10 +11,16 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 const rotate = (nums, k) => {
-  if (nums.length < 2) return;
-  k = k % nums.length;
-  // * unshift is costly, maybe O(kn) space?
-  while (k-- > 0) nums.unshift(nums.pop());
+  const l = nums.length;
+  k = k % l;
+  if (k !== 0) {
+    // * O(n) space
+    const mirror = nums.map((e, i) => nums[(l + i - k) % l]);
+    // * write back
+    for (let i = 0; i < l; i++) {
+      nums[i] = mirror[i];
+    }
+  }
   return;
 };
 exports.rotate = rotate;
