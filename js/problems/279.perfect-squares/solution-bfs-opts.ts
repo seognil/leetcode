@@ -15,7 +15,6 @@ const numSquares = (n: number): number => {
 
   // * queue items is smaller than my previous solution
   // * but bfs memory usage is just not so good as dp way
-  // * because dp caches results
 
   let queue: number[] = [n];
 

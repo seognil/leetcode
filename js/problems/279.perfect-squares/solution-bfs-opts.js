@@ -15,7 +15,6 @@ const numSquares = (n) => {
   // * inspired by: https://leetcode-cn.com/problems/perfect-squares/solution/javascript-bfsjie-fa-by-da-fei-kai/
   // * queue items is smaller than my previous solution
   // * but bfs memory usage is just not so good as dp way
-  // * because dp caches results
   let queue = [n];
   const visited = new Set();
   let step = 1;
