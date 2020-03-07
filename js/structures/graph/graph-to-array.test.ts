@@ -1,10 +1,11 @@
-import { GraphNode, graphToArray, arrayToGraph } from './array-graph';
+import { GraphNode } from './graph-node';
+import { graphToArray, arrayToGraph } from './graph-to-array';
 
 describe('', () => {
-  const g1: GraphNode = { val: 1, neighbors: [] };
-  const g2: GraphNode = { val: 2, neighbors: [] };
-  const g3: GraphNode = { val: 3, neighbors: [] };
-  const g4: GraphNode = { val: 4, neighbors: [] };
+  const g1 = new GraphNode(1);
+  const g2 = new GraphNode(2);
+  const g3 = new GraphNode(3);
+  const g4 = new GraphNode(4);
 
   g1.neighbors = [g2, g4];
   g2.neighbors = [g1, g3];

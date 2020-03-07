@@ -1,11 +1,12 @@
-import { LinkNode, linkToArray, arrayToLink } from './array-link';
+import { LinkNode } from './link-node';
+import { linkToArray, arrayToLink } from './link-to-array';
 
 describe('', () => {
-  const l1: LinkNode = { val: 7, next: null };
-  const l2: LinkNode = { val: 11, next: null };
-  const l3: LinkNode = { val: 13, next: null };
-  const l4: LinkNode = { val: 17, next: null };
-  const l5: LinkNode = { val: 23, next: null };
+  const l1 = new LinkNode(7);
+  const l2 = new LinkNode(11);
+  const l3 = new LinkNode(13);
+  const l4 = new LinkNode(17);
+  const l5 = new LinkNode(23);
 
   l1.next = l2;
   l2.next = l3;

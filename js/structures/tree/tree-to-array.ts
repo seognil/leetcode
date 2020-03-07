@@ -1,10 +1,5 @@
+import { TreeNode } from './tree-node';
 type val = any;
-
-export type TreeNode = {
-  val: val;
-  left: TreeNode | null;
-  right: TreeNode | null;
-};
 
 type ArrayList = (val | null)[];
 
@@ -23,6 +18,7 @@ export const treeToArray = (tree: TreeNode | null): ArrayList => {
     node.right !== null && queue.push([node.right, index * 2 + 2]);
   }
 
+  // * fullfill empty slots
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === undefined) arr[i] = null;
   }
@@ -34,11 +30,9 @@ export const arrayToTree = (arr: ArrayList, index = 0): TreeNode | null => {
   const crossBoundary = arr[index] === undefined;
   if (arr[index] === null || crossBoundary) return null;
 
-  const node: TreeNode = {
-    val: arr[index]!,
-    left: arrayToTree(arr, index * 2 + 1),
-    right: arrayToTree(arr, index * 2 + 2),
-  };
-
-  return node;
+  return new TreeNode(
+    arr[index]!,
+    arrayToTree(arr, index * 2 + 1),
+    arrayToTree(arr, index * 2 + 2),
+  );
 };

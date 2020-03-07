@@ -1,9 +1,6 @@
-type val = number;
+import { GraphNode } from './graph-node';
 
-export type GraphNode = {
-  val: val;
-  neighbors: GraphNode[];
-};
+type val = number;
 
 type ArrayList = val[][];
 
@@ -39,14 +36,14 @@ export const arrayToGraph = (arr: ArrayList): GraphNode | null => {
 
   arr.forEach((neighbors, i) => {
     const val = i + 1;
-    const node: GraphNode = { val, neighbors: [] };
+    const node = new GraphNode(val);
     pool[val] = node;
   });
 
   arr.forEach((neighbors, i) => {
     const val = i + 1;
     const node = pool[val];
-    node.neighbors = neighbors.map((val) => pool[val] as GraphNode);
+    node.neighbors = neighbors.map((val) => pool[val]);
   });
 
   return pool[1];
