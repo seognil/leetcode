@@ -6,6 +6,6 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "include": ["problems", "helper", "analyze"],
+  "include": ["problems", "structures", "helper", "analyze"],
   "exclude": ["node_modules"]
 }

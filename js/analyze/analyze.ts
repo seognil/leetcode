@@ -220,7 +220,7 @@ const myProgress3 = [
 // 1 ['56 ms', '98.41 %', '35 MB', '42.45 %']
 // 20 ['56 ms', '84.27 %', '34 MB', '57.31 %']
 
-import { parseAccepted } from '../helper/parse-result';
+import { parseAccepted } from '../helper/parse-accepted';
 
 const queueAndStack = [
   //
