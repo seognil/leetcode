@@ -1,4 +1,5 @@
 import { clone } from 'ramda';
+import stringify from 'fast-safe-stringify';
 
 // * ---------------------------------------------------------------- testCases maker
 
@@ -29,7 +30,7 @@ export const testRunner: TestRunner = (testCases, solver, fnName = solver.name) 
     // * if return nothing, the data must be inplace modified
     const ourResult = rawResult === undefined ? input[0] : rawResult;
 
-    const fmt = (d: any) => JSON.stringify(d);
+    const fmt = (d: any) => stringify(d);
     const printInputBackup = fmt(inputBackup).replace(/^\[(.*)\]$/, '$1'); // * unwrap [input]
     const printExpectResult = fmt(output);
     const printOurResult = fmt(ourResult);

@@ -234,8 +234,8 @@ const queueAndStack = [
   [739],
   [150],
 
-  [200],
-  [133],
+  [200, ['60 ms', '90.61 %', '37.5 MB', '74.19 %']],
+  [133, ['60 ms', '80.17 %', '35.5 MB', '100 %']],
   [494],
   [94],
 
@@ -248,7 +248,7 @@ const queueAndStack = [
 ];
 
 parseAccepted(`
-588/588 cases passed (80 ms)
-Your runtime beats 93.25 % of javascript submissions
-Your memory usage beats 12.5 % of javascript submissions (38.2 MB)
+47/47 cases passed (60 ms)
+Your runtime beats 90.61 % of javascript submissions
+Your memory usage beats 74.19 % of javascript submissions (37.5 MB)
 `);

@@ -12,7 +12,8 @@ import { Grid } from './types';
  * @return {number}
  */
 const numIslands = (grid: Grid): number => {
-  // * DFS https://leetcode.com/problems/number-of-islands/discuss/391717/JavaScript-DFS-56ms-very-easy-to-understand
+  // * DFS ['60 ms', '90.61 %', '37.5 MB', '74.19 %']
+  // * https://leetcode.com/problems/number-of-islands/discuss/391717/JavaScript-DFS-56ms-very-easy-to-understand
 
   if (!grid.length) return 0;
 

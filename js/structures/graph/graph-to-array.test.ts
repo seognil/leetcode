@@ -26,10 +26,21 @@ describe('', () => {
     expect(graphToArray(null)).toEqual([]);
   });
 
-  test('graphToArray', () => {
+  test('arrayToGraph', () => {
     expect(arrayToGraph(arr)).toEqual(g1);
   });
-  test('graphToArray null', () => {
+  test('arrayToGraph null', () => {
     expect(arrayToGraph([])).toEqual(null);
+  });
+});
+
+describe('', () => {
+  const g1 = new GraphNode(1);
+  const arr = [[]];
+  test('graphToArray empty', () => {
+    expect(graphToArray(g1)).toEqual(arr);
+  });
+  test('arrayToGraph empty', () => {
+    expect(arrayToGraph([[]])).toEqual(g1);
   });
 });
