@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start": "tsc-watch -p tsconfig-build.json --onSuccess 'pretty-quick --pattern \"**/*.js\"' --onFirstSuccess 'jest --watch'",
+    "test:all": "jest",
     "format:all": "eslint --fix . && prettier --write '{,!(node_modules|dist|build|coverage)/**/}*.*' '!*.{log,lock,map}' '!**/.*' '!package-lock.json'",
     "format:staged": "pretty-quick --staged && lint-staged",
     "analyze": "ts-node analyze/analyze"
