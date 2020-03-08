@@ -17,18 +17,16 @@ const openLock = (deadends, target) => {
   // * this's my fastest ['124 ms', '94.29 %', '42.3 MB', '100 %']
   if (deadends.includes('0000') || deadends.includes(target)) return -1;
   if (target === '0000') return 0;
-  // * use number, not string, without data type transform, it's faster
+  // * use number, not string, without data type transform, it's a litte faster
   const numTarget = Number(target);
-  const steps = {
-    0: 0,
-  };
+  const steps = { 0: 0 };
   deadends.forEach((code) => {
     steps[Number(code)] = -1;
   });
-  // * ----------------
+  // * ---------------- bfsWalker
   const bfsWalker = (cur) => {
     const neighbors = [];
-    // * but bfs calculation is a bit complex, it's using number
+    // * this version's calculation is a bit complex, it's using number
     for (let i = 0; i < 4; i++) {
       const base = Math.pow(10, i);
       const c = ~~(cur / base) % 10;
@@ -37,7 +35,7 @@ const openLock = (deadends, target) => {
     }
     return neighbors.filter((e) => steps[e] === undefined);
   };
-  // * ----------------
+  // * ---------------- start searching
   const queue = [0];
   let cur;
   while (queue.length) {

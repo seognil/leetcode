@@ -18,28 +18,26 @@ const openLock = (deadends: string[], target: string): number => {
   if (deadends.includes('0000') || deadends.includes(target)) return -1;
   if (target === '0000') return 0;
 
-  // * ----------------
+  // * ---------------- prepare
 
   type Code = number;
 
-  // * use number, not string, without data type transform, it's faster
+  // * use number, not string, without data type transform, it's a litte faster
 
   const numTarget = Number(target);
 
-  const steps: Record<Code, number> = {
-    0: 0,
-  };
+  const steps: Record<Code, number> = { 0: 0 };
 
   deadends.forEach((code) => {
     steps[Number(code)] = -1;
   });
 
-  // * ----------------
+  // * ---------------- bfsWalker
 
   const bfsWalker = (cur: Code): Code[] => {
     const neighbors: Code[] = [];
 
-    // * but bfs calculation is a bit complex, it's using number
+    // * this version's calculation is a bit complex, it's using number
     for (let i = 0; i < 4; i++) {
       const base = 10 ** i;
       const c = ~~(cur / base) % 10;
@@ -50,7 +48,7 @@ const openLock = (deadends: string[], target: string): number => {
     return neighbors.filter((e) => steps[e] === undefined);
   };
 
-  // * ----------------
+  // * ---------------- start searching
 
   const queue: Code[] = [0];
 

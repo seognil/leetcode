@@ -28,9 +28,10 @@ const cloneGraph = (node) => {
   // * ['60 ms', '80.17 %', '35.5 MB', '100 %']
   if (node === null) return null;
   const pool = {};
-  const queue = [node];
-  while (queue.length) {
-    const node = queue.pop();
+  const stack = [node];
+  // * ---------------- dfs
+  while (stack.length) {
+    const node = stack.pop();
     // * prepare, maybe already did in previous loop
     if (!pool[node.val]) {
       pool[node.val] = new Node(node.val, node.neighbors);
@@ -39,7 +40,7 @@ const cloneGraph = (node) => {
     node.neighbors.forEach((nbNode) => {
       if (!pool[nbNode.val]) {
         pool[nbNode.val] = new Node(nbNode.val);
-        queue.push(nbNode);
+        stack.push(nbNode);
       }
     });
     // * link neighbors

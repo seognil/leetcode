@@ -18,19 +18,17 @@ const openLock = (deadends: string[], target: string): number => {
   if (deadends.includes('0000') || deadends.includes(target)) return -1;
   if (target === '0000') return 0;
 
-  // * ----------------
+  // * ---------------- prepare
 
   type Code = string;
 
-  const steps: Record<Code, number> = {
-    '0000': 0,
-  };
+  const steps: Record<Code, number> = { '0000': 0 };
 
   deadends.forEach((code) => {
     steps[code] = -1;
   });
 
-  // * ----------------
+  // * ---------------- bfsWalker
 
   const bfsWalker = (cur: Code): Code[] => {
     const curArr = cur.split('');
@@ -52,7 +50,7 @@ const openLock = (deadends: string[], target: string): number => {
     return neighbors.filter((e) => steps[e] === undefined);
   };
 
-  // * ----------------
+  // * ---------------- start searching
 
   const queue: Code[] = ['0000'];
 

@@ -28,10 +28,12 @@ const cloneGraph = (node: Node | null): Node | null => {
 
   type val = number;
   const pool: Record<val, Node> = {};
-  const queue: Node[] = [node];
+  const stack: Node[] = [node];
 
-  while (queue.length) {
-    const node = queue.pop()!;
+  // * ---------------- dfs
+
+  while (stack.length) {
+    const node = stack.pop()!;
 
     // * prepare, maybe already did in previous loop
     if (!pool[node.val]) {
@@ -42,7 +44,7 @@ const cloneGraph = (node: Node | null): Node | null => {
     node.neighbors.forEach((nbNode) => {
       if (!pool[nbNode.val]) {
         pool[nbNode.val] = new Node(nbNode.val);
-        queue.push(nbNode);
+        stack.push(nbNode);
       }
     });
 

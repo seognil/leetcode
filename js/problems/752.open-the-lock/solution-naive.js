@@ -16,13 +16,11 @@ const openLock = (deadends, target) => {
   var _a;
   if (deadends.includes('0000') || deadends.includes(target)) return -1;
   if (target === '0000') return 0;
-  const steps = {
-    '0000': 0,
-  };
+  const steps = { '0000': 0 };
   deadends.forEach((code) => {
     steps[code] = -1;
   });
-  // * ----------------
+  // * ---------------- bfsWalker
   const bfsWalker = (cur) => {
     const [a, b, c, d] = cur.split('').map((e) => Number(e));
     const neighbors = [
@@ -39,7 +37,7 @@ const openLock = (deadends, target) => {
       .filter((e) => steps[e] === undefined);
     return neighbors;
   };
-  // * ----------------
+  // * ---------------- start searching
   const queue = ['0000'];
   let cur;
   while (queue.length) {
