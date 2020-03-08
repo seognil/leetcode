@@ -46,3 +46,8 @@ const cases = makeTestCasesOfSingleInput<Input, Output>(
 
 import { cloneGraph } from './solution';
 testRunner(cases, cloneGraph);
+
+import { Node } from './solution';
+test('`new Node()` will success', () => {
+  expect(new Node()).toBeInstanceOf(Node);
+});

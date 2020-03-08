@@ -1,7 +1,16 @@
 import { GraphNode } from './graph-node';
 import { graphToArray, arrayToGraph } from './graph-to-array';
 
-describe('', () => {
+describe('null', () => {
+  test('graphToArray null', () => {
+    expect(graphToArray(null)).toEqual([]);
+  });
+  test('arrayToGraph null', () => {
+    expect(arrayToGraph([])).toEqual(null);
+  });
+});
+
+describe('normal case', () => {
   const g1 = new GraphNode(1);
   const g2 = new GraphNode(2);
   const g3 = new GraphNode(3);
@@ -22,19 +31,13 @@ describe('', () => {
   test('graphToArray', () => {
     expect(graphToArray(g1)).toEqual(arr);
   });
-  test('graphToArray null', () => {
-    expect(graphToArray(null)).toEqual([]);
-  });
 
   test('arrayToGraph', () => {
     expect(arrayToGraph(arr)).toEqual(g1);
   });
-  test('arrayToGraph null', () => {
-    expect(arrayToGraph([])).toEqual(null);
-  });
 });
 
-describe('', () => {
+describe('one node case', () => {
   const g1 = new GraphNode(1);
   const arr = [[]];
   test('graphToArray empty', () => {

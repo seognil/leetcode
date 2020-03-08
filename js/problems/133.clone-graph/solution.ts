@@ -54,4 +54,4 @@ const cloneGraph = (node: Node | null): Node | null => {
 };
 // @lc code=end
 
-export { cloneGraph };
+export { cloneGraph, Node };

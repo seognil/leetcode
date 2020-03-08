@@ -19,6 +19,7 @@ class Node {
     this.neighbors = neighbors;
   }
 }
+exports.Node = Node;
 /**
  * @param {Node} node
  * @return {Node}

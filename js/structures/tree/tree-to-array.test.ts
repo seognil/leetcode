@@ -1,7 +1,16 @@
 import { TreeNode } from './tree-node';
-import { treeToArray, arrayToTree } from './tree-to-array';
+import { treeToArray, arrayToTree, fixTreeArray } from './tree-to-array';
 
-describe('', () => {
+describe('null', () => {
+  test('treeToArray null', () => {
+    expect(treeToArray(null)).toEqual([]);
+  });
+  test('arrayToTree null', () => {
+    expect(arrayToTree([])).toEqual(null);
+  });
+});
+
+describe('normal case', () => {
   const t0 = new TreeNode(3);
 
   const t1 = new TreeNode(9);
@@ -19,14 +28,37 @@ describe('', () => {
   test('treeToArray', () => {
     expect(treeToArray(t0)).toEqual(arr);
   });
-  test('treeToArray null', () => {
-    expect(treeToArray(null)).toEqual([]);
-  });
 
   test('arrayToTree', () => {
     expect(arrayToTree(arr)).toEqual(t0);
   });
-  test('arrayToTree null', () => {
-    expect(arrayToTree([])).toEqual(null);
+});
+
+describe('fixTreeArray', () => {
+  const glitchArr = [1, null, 2, 3];
+  const correctArr = [1, null, 2, null, null, 3];
+  test('fixTreeArray', () => {
+    expect(fixTreeArray(glitchArr)).toEqual(correctArr);
+  });
+});
+
+describe('glitch case manually fixed', () => {
+  const t0 = new TreeNode(1);
+
+  const t2 = new TreeNode(2);
+  const t3 = new TreeNode(3);
+
+  t0.right = t2;
+  t2.left = t3;
+
+  const arr = fixTreeArray([1, null, 2, 3]);
+
+  test('treeToArray', () => {
+    console.log(treeToArray(t0));
+    expect(treeToArray(t0)).toEqual(arr);
+  });
+
+  test('arrayToTree', () => {
+    expect(arrayToTree(arr)).toEqual(t0);
   });
 });

@@ -36,3 +36,17 @@ export const arrayToTree = (arr: ArrayList, index = 0): TreeNode | null => {
     arrayToTree(arr, index * 2 + 2),
   );
 };
+
+export const fixTreeArray = (arr: ArrayList): ArrayList => {
+  let result: ArrayList = [...arr];
+
+  for (let i = 1; i < result.length; i++) {
+    const e = result[i];
+    const parentIndex = ~~((i - 1) / 2);
+    if (e !== null && result[parentIndex] === null) {
+      result = [...result.slice(0, i), null, ...result.slice(i)];
+    }
+  }
+
+  return result;
+};
