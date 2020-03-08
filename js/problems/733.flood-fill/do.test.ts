@@ -24,6 +24,7 @@ const cases = makeTestCases<Input, Output>([
       [2, 0, 1],
     ],
   },
+
   {
     input: [
       [
@@ -40,15 +41,6 @@ const cases = makeTestCases<Input, Output>([
       [1, 1, 0],
       [1, 0, 1],
     ],
-  },
-
-  {
-    input: [[], 1, 1, 1],
-    output: [],
-  },
-  {
-    input: [[[]], 1, 1, 1],
-    output: [[]],
   },
 ]);
 

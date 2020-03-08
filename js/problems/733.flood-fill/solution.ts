@@ -15,31 +15,32 @@
 const floodFill = (image: number[][], sr: number, sc: number, newColor: number): number[][] => {
   // * ['68 ms', '95.48 %', '37.5 MB', '50 %']
 
-  // * ---------------- failed cases, change nothing
+  // * (arguments are all safe, no more error checking)
 
-  if (image.length < 1 || image[0].length < 1) return image;
-  if (newColor === image[sr][sc]) return image;
+  // * ---------------- change nothing
 
-  const maxR = image.length;
-  const maxC = image[0].length;
-  const inRange = (r: number, c: number): boolean => 0 <= r && r < maxR && 0 <= c && c < maxC;
+  const originColor = image[sr][sc];
+  if (newColor === originColor) return image;
 
   // * ---------------- dfs walking
 
+  const maxR = image.length;
+  const maxC = image[0].length;
+
   const checkList: [number, number][] = [[sr, sc]];
 
-  const originColor = image[sr][sc];
-
   while (checkList.length) {
-    const [curR, curC] = checkList.pop()!;
+    const [r, c] = checkList.pop()!;
 
-    if (inRange(curR, curC) && image[curR][curC] === originColor) {
-      image[curR][curC] = newColor;
+    const inRange = 0 <= r && r < maxR && 0 <= c && c < maxC;
 
-      checkList.push([curR + 1, curC]);
-      checkList.push([curR - 1, curC]);
-      checkList.push([curR, curC + 1]);
-      checkList.push([curR, curC - 1]);
+    if (inRange && image[r][c] === originColor) {
+      image[r][c] = newColor;
+
+      checkList.push([r + 1, c]);
+      checkList.push([r - 1, c]);
+      checkList.push([r, c + 1]);
+      checkList.push([r, c - 1]);
     }
   }
 
