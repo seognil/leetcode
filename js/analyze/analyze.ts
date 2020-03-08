@@ -247,6 +247,26 @@ const queueAndStack = [
   [841, ['56 ms', '86.69 %', '35.4 MB', '100 %']],
 ];
 
+const recursion = [
+  //
+  [344],
+  [24],
+
+  [118],
+  [119],
+  [206],
+
+  [509],
+  [70],
+
+  [104],
+  [50],
+
+  [21],
+  [779],
+  [95],
+];
+
 parseAccepted(`
 Accepted
 48/48 cases passed (200 ms)
