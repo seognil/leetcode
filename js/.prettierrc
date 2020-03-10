@@ -6,5 +6,13 @@
   "tabWidth": 2,
   "quoteProps": "consistent",
   "semi": true,
-  "useTabs": false
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "fetch-problems*",
+      "options": {
+        "printWidth": 140
+      }
+    }
+  ]
 }
