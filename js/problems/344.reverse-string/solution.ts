@@ -8,6 +8,8 @@
  * @return {void} Do not return anything, modify s in-place instead.
  */
 const reverseString = function(s: string[]): void {
+  // * ['104 ms', '98.39 %', '46.9 MB', '33.19 %']
+
   if (s.length < 2) return;
 
   const swap = (str: string[], i: number, j: number) => {

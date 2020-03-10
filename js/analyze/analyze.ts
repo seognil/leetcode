@@ -249,8 +249,12 @@ const queueAndStack = [
 
 const recursion = [
   //
-  [344],
-  [24],
+  [344, ['104 ms', '98.39 %', '46.9 MB', '33.19 %']],
+  [24, ['52 ms', '80.94 %', '33.7 MB', '89.47 %']],
+
+  [92],
+  [700],
+  [119],
 
   [118],
   [119],
@@ -268,8 +272,9 @@ const recursion = [
 ];
 
 parseAccepted(`
-Accepted
-48/48 cases passed (200 ms)
-Your runtime beats 60.76 % of javascript submissions
-Your memory usage beats 100 % of javascript submissions (64.4 MB)
+
+55/55 cases passed (52 ms)
+Your runtime beats 80.94 % of javascript submissions
+Your memory usage beats 89.47 % of javascript submissions (33.7 MB)
+
 `);
