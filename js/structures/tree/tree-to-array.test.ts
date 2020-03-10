@@ -1,5 +1,5 @@
 import { TreeNode } from './tree-node';
-import { treeToArray, arrayToTree, fixTreeArray } from './tree-to-array';
+import { treeToArray, arrayToTree, fixTreeArray, arrayToTreeWithAutoFix } from './tree-to-array';
 
 describe('null', () => {
   test('treeToArray null', () => {
@@ -60,5 +60,26 @@ describe('glitch case manually fixed', () => {
 
   test('arrayToTree', () => {
     expect(arrayToTree(arr)).toEqual(t0);
+  });
+});
+
+describe('glitch case auto fixed', () => {
+  const t0 = new TreeNode(1);
+
+  const t2 = new TreeNode(2);
+  const t3 = new TreeNode(3);
+
+  t0.right = t2;
+  t2.left = t3;
+
+  const arr = [1, null, 2, 3];
+
+  test('treeToArray', () => {
+    console.log(treeToArray(t0));
+    expect(treeToArray(t0)).toEqual(fixTreeArray(arr));
+  });
+
+  test('arrayToTree', () => {
+    expect(arrayToTreeWithAutoFix(arr)).toEqual(t0);
   });
 });

@@ -50,3 +50,6 @@ export const fixTreeArray = (arr: ArrayList): ArrayList => {
 
   return result;
 };
+
+export const arrayToTreeWithAutoFix = (arr: ArrayList): TreeNode | null =>
+  arrayToTree(fixTreeArray(arr));
