@@ -252,7 +252,7 @@ const recursion = [
   [344, ['104 ms', '98.39 %', '46.9 MB', '33.19 %']],
   [24, ['52 ms', '80.94 %', '33.7 MB', '89.47 %']],
 
-  [92],
+  [206, ['48 ms', '98.66 %', '34.9 MB', '73.91 %']],
   [700],
   [119],
 
@@ -271,10 +271,15 @@ const recursion = [
   [95],
 ];
 
+const others = [
+  //
+  [92, ['48 ms', '95.02 %', '33.7 MB', '57.14 %']],
+];
+
 parseAccepted(`
 
-55/55 cases passed (52 ms)
-Your runtime beats 80.94 % of javascript submissions
-Your memory usage beats 89.47 % of javascript submissions (33.7 MB)
+44/44 cases passed (48 ms)
+Your runtime beats 95.02 % of javascript submissions
+Your memory usage beats 42.86 % of javascript submissions (33.8 MB)
 
 `);

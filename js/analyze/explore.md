@@ -121,7 +121,7 @@
   - 24：**Swap Nodes in Pairs**
 - Recurrence Relation
   - Recurrence Relation
-  - 92：**Reverse Linked List**
+  - 206：**Reverse Linked List**
   - 700：**Search in a Binary Search Tree**
   - 119：**Pascal's Triangle II**
 - Memoization
