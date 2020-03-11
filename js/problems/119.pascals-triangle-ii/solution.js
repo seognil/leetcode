@@ -10,6 +10,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @return {number[]}
  */
 const getRow = (rowIndex) => {
+  // * ['44 ms', '98.06 %', '33.8 MB', '70 %']
   // * O(k) space means in-place algo
   // * row `n` has `n+1` numbers
   // * row 0 is [1]

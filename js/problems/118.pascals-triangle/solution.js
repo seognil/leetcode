@@ -10,6 +10,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @return {number[][]}
  */
 const generate = (numRows) => {
+  // * ['48 ms', '92.35 %', '33.7 MB', '100 %']
   const result = Array.from({ length: numRows }, () => []);
   for (let i = 0; i < numRows; i++) {
     const curRow = result[i];

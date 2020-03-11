@@ -8,6 +8,8 @@
  * @return {number[][]}
  */
 const generate = (numRows: number): number[][] => {
+  // * ['48 ms', '92.35 %', '33.7 MB', '100 %']
+
   const result: number[][] = Array.from({ length: numRows }, () => []);
 
   for (let i = 0; i < numRows; i++) {
