@@ -1,20 +1,17 @@
+'use strict';
 /*
  * @lc app=leetcode id=104 lang=javascript
  *
  * [104] Maximum Depth of Binary Tree
  */
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
+Object.defineProperty(exports, '__esModule', { value: true });
 /**
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
+const maxDepth = (root) => {
+  // * ['56 ms', '93.09 %', '37.2 MB', '28.13 %']
   if (root === null) return 0;
   return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
+exports.maxDepth = maxDepth;

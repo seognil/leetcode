@@ -253,20 +253,20 @@ const recursion = [
   [24, ['52 ms', '80.94 %', '33.7 MB', '89.47 %']],
 
   [206, ['48 ms', '98.66 %', '34.9 MB', '73.91 %']],
-  [700],
-  [119],
+  [700, ['72 ms', '92.19 %', '42.7 MB', '6.25 %']],
+  [119, ['44 ms', '98.06 %', '33.8 MB', '70 %']],
 
-  [118],
-  [119],
-  [206],
+  [118, ['48 ms', '92.35 %', '33.7 MB', '100 %']],
+  [119, ['44 ms', '98.06 %', '33.8 MB', '70 %']],
+  [206, ['48 ms', '98.66 %', '34.9 MB', '73.91 %']],
 
-  [509],
-  [70],
+  [509, ['48 ms', '92.72 %', '33.8 MB', '100 %']],
+  [70, ['52 ms', '72.67 %', '33.7 MB', '92 %']],
 
-  [104],
-  [50],
+  [104, ['56 ms', '93.09 %', '37.2 MB', '28.13 %']],
+  [50, ['52 ms', '93.37 %', '33.9 MB', '52.94 %']],
 
-  [21],
+  [21, ['60 ms', '86.75 %', '35.5 MB', '79.49 %']],
   [779],
   [95],
 ];
@@ -278,8 +278,9 @@ const others = [
 
 parseAccepted(`
 
-44/44 cases passed (48 ms)
-Your runtime beats 95.02 % of javascript submissions
-Your memory usage beats 42.86 % of javascript submissions (33.8 MB)
 
+Accepted
+208/208 cases passed (60 ms)
+Your runtime beats 86.75 % of javascript submissions
+Your memory usage beats 79.49 % of javascript submissions (35.5 MB)
 `);
