@@ -273,7 +273,7 @@ const recursion = [
 
 const linkedList = [
   //
-  [707],
+  [707, ['120 ms', '71.85 %', '42.1 MB', '100 %']],
 
   [141],
   [142],
@@ -301,8 +301,8 @@ parseAccepted(`
 
 
 Accepted
-9/9 cases passed (72 ms)
-Your runtime beats 79.12 % of javascript submissions
-Your memory usage beats 66.67 % of javascript submissions (37.9 MB)
+57/57 cases passed (116 ms)
+Your runtime beats 82.77 % of javascript submissions
+Your memory usage beats 100 % of javascript submissions (42.3 MB)
 
 `);
