@@ -9,20 +9,13 @@ import { MyLinkedListClass, LinkNode } from './types';
 
 class MyLinkedList implements MyLinkedListClass {
   // * ['116 ms', '82.77 %', '42.3 MB', '100 %']
+  // * singly, head and tail, but not so good
 
   private head: LinkNode | null = null;
   private tail: LinkNode | null = null;
   private length = 0;
 
   constructor() {}
-
-  get(index: number) {
-    if (index < 0 || this.length <= index) return -1;
-
-    let cur = this.head!;
-    for (let i = 0; i < index; i++) cur = cur.next!;
-    return cur.val;
-  }
 
   private addfromEmpty(val: number): void {
     this.head = this.tail = { val, next: null };
@@ -48,6 +41,14 @@ class MyLinkedList implements MyLinkedListClass {
     this.length++;
   }
 
+  get(index: number) {
+    if (index < 0 || this.length <= index) return -1;
+
+    let cur = this.head!;
+    for (let i = 0; i < index; i++) cur = cur.next!;
+    return cur.val;
+  }
+
   addAtIndex(index: number, val: number) {
     if (index < 0 || this.length < index) return;
 
@@ -64,7 +65,7 @@ class MyLinkedList implements MyLinkedListClass {
   deleteAtIndex(index: number) {
     if (index < 0 || this.length <= index) return;
 
-    if (this.length === 1 && index === 0) {
+    if (this.length === 1) {
       this.head = this.tail = null;
       this.length = 0;
       return;

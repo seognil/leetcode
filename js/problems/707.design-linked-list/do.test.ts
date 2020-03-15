@@ -22,8 +22,8 @@ const testRunnerRaw = (MyLinkedList: MyLinkedListContructor) => {
     const linkedList = new MyLinkedList();
 
     expect(linkedList.addAtHead(2)).toEqual(undefined);
-    expect(linkedList.addAtIndex(0, 2)).toEqual(undefined);
-    expect(linkedList.addAtTail(2)).toEqual(undefined);
+    expect(linkedList.addAtIndex(0, 1)).toEqual(undefined);
+    expect(linkedList.addAtTail(3)).toEqual(undefined);
     expect(linkedList.deleteAtIndex(2)).toEqual(undefined);
   });
 
@@ -324,12 +324,18 @@ const testRunnerRaw = (MyLinkedList: MyLinkedListContructor) => {
 
 // * ------------------------------------------------
 
-import { MyLinkedList } from './solution';
-import { MyLinkedList as MLL2 } from './solution-head-tail';
+import { MyLinkedList as DoublyLinkedList } from './solution';
+import { MyLinkedList as SinglyRoot } from './solution-singly-root';
+import { MyLinkedList as SinglyHeadTail } from './solution-singly-head-tail';
 
-describe('MyLinkedList', () => {
-  testRunnerRaw(MyLinkedList);
+describe('MyLinkedList doubly, more code but faster', () => {
+  testRunnerRaw(DoublyLinkedList);
 });
-describe('MyLinkedList with head/tail', () => {
-  testRunnerRaw(MLL2);
+
+describe('MyLinkedList singly, simple but slow', () => {
+  testRunnerRaw(SinglyRoot);
+});
+
+describe('MyLinkedList singly, not so good', () => {
+  testRunnerRaw(SinglyHeadTail);
 });

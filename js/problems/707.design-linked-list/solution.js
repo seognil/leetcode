@@ -8,38 +8,69 @@ Object.defineProperty(exports, '__esModule', { value: true });
 // @lc code=start
 class MyLinkedList {
   constructor() {
-    // * ['112 ms', '91.18 %', '42.2 MB', '100 %']
-    this.root = { val: 0, next: null };
+    // * ['112 ms', '91.6 %', '42 MB', '100 %']
+    // * doubly, more code but faster
+    this.head = null;
+    this.tail = null;
     this.length = 0;
   }
-  get(index) {
-    if (index < 0 || this.length <= index) return -1;
-    let cur = this.root.next;
-    for (let i = 0; i < index; i++) cur = cur.next;
-    return cur.val;
+  addfromEmpty(val) {
+    this.head = this.tail = { val, next: null, prev: null };
+    this.length = 1;
   }
   addAtHead(val) {
-    this.root.next = { val, next: this.root.next };
+    if (this.length === 0) return this.addfromEmpty(val);
+    this.head = { val, next: this.head, prev: null };
+    this.head.next.prev = this.head;
     this.length++;
   }
   addAtTail(val) {
-    let cur = this.root;
-    while (cur.next) cur = cur.next;
-    cur.next = { val, next: null };
+    if (this.length === 0) return this.addfromEmpty(val);
+    this.tail = { val, next: null, prev: this.tail };
+    this.tail.prev.next = this.tail;
     this.length++;
+  }
+  getNodeAt(index) {
+    let p;
+    if (index < this.length / 2) {
+      p = this.head;
+      for (let i = 0; i < index; i++) p = p.next;
+    } else {
+      p = this.tail;
+      for (let i = this.length - 1; i > index; i--) p = p.prev;
+    }
+    return p;
+  }
+  get(index) {
+    if (index < 0 || this.length <= index) return -1;
+    return this.getNodeAt(index).val;
   }
   addAtIndex(index, val) {
     if (index < 0 || this.length < index) return;
-    let cur = this.root;
-    for (let i = 0; i < index; i++) cur = cur.next;
-    cur.next = { val, next: cur.next };
+    if (index === 0) return this.addAtHead(val);
+    if (index === this.length) return this.addAtTail(val);
+    const n3 = this.getNodeAt(index);
+    const n1 = n3.prev;
+    const n2 = { val, next: n3, prev: n1 };
+    n1.next = n2;
+    n3.prev = n2;
     this.length++;
   }
   deleteAtIndex(index) {
     if (index < 0 || this.length <= index) return;
-    let cur = this.root;
-    for (let i = 0; i < index; i++) cur = cur.next;
-    cur.next = cur.next.next;
+    if (this.length === 1) {
+      this.head = this.tail = null;
+    } else if (index === 0) {
+      this.head = this.head.next;
+      this.head.prev = null;
+    } else if (index === this.length - 1) {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    } else {
+      const cur = this.getNodeAt(index);
+      cur.prev.next = cur.next;
+      cur.next.prev = cur.prev;
+    }
     this.length--;
   }
 }

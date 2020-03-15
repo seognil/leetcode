@@ -301,8 +301,8 @@ parseAccepted(`
 
 
 Accepted
-57/57 cases passed (116 ms)
-Your runtime beats 82.77 % of javascript submissions
-Your memory usage beats 100 % of javascript submissions (42.3 MB)
+57/57 cases passed (112 ms)
+Your runtime beats 91.6 % of javascript submissions
+Your memory usage beats 100 % of javascript submissions (42 MB)
 
 `);

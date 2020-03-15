@@ -9,15 +9,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 class MyLinkedList {
   constructor() {
     // * ['116 ms', '82.77 %', '42.3 MB', '100 %']
+    // * singly, head and tail, but not so good
     this.head = null;
     this.tail = null;
     this.length = 0;
-  }
-  get(index) {
-    if (index < 0 || this.length <= index) return -1;
-    let cur = this.head;
-    for (let i = 0; i < index; i++) cur = cur.next;
-    return cur.val;
   }
   addfromEmpty(val) {
     this.head = this.tail = { val, next: null };
@@ -38,6 +33,12 @@ class MyLinkedList {
     }
     this.length++;
   }
+  get(index) {
+    if (index < 0 || this.length <= index) return -1;
+    let cur = this.head;
+    for (let i = 0; i < index; i++) cur = cur.next;
+    return cur.val;
+  }
   addAtIndex(index, val) {
     if (index < 0 || this.length < index) return;
     if (index === 0) return this.addAtHead(val);
@@ -49,7 +50,7 @@ class MyLinkedList {
   }
   deleteAtIndex(index) {
     if (index < 0 || this.length <= index) return;
-    if (this.length === 1 && index === 0) {
+    if (this.length === 1) {
       this.head = this.tail = null;
       this.length = 0;
       return;

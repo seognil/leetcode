@@ -3,6 +3,12 @@ export interface LinkNode {
   next: LinkNode | null;
 }
 
+export interface DoublyLinkNode {
+  val: number;
+  next: DoublyLinkNode | null;
+  prev: DoublyLinkNode | null;
+}
+
 export interface MyLinkedListContructor {
   new (): MyLinkedListClass;
 }
