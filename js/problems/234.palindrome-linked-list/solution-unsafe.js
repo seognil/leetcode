@@ -22,22 +22,22 @@ const isPalindrome = (head) => {
   // * reverse second half part of list
   let p1 = head;
   let p2 = reverseList(slow.next);
-  // * mark for restore data mutation
-  const halfRoot = slow;
-  const halfHead = p2;
+  // // * mark for restore data mutation
+  // const halfRoot = slow;
+  // const halfHead = p2;
   // * checking
   while (p2 && p1) {
     if (p1.val !== p2.val) return false;
     p1 = p1.next;
     p2 = p2.next;
   }
-  // * restore our mutation
-  halfRoot.next = reverseList(halfHead);
+  // // * restore our mutation
+  // halfRoot.next = reverseList(halfHead);
   return true;
 };
 exports.isPalindrome = isPalindrome;
-// * leetcode 206
 const reverseList = (head) => {
+  // * leetcode 206
   let cur = head;
   let prev = null;
   let next;
