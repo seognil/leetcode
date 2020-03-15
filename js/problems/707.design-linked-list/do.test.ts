@@ -1,4 +1,4 @@
-import { linkToArray } from './../../structures/link/link-to-array';
+import { listToArray } from '../../structures/linked-list/list-to-array';
 import { MyLinkedListContructor } from './types.d';
 
 // @ts-ignore

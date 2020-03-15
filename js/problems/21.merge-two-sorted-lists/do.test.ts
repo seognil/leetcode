@@ -1,14 +1,14 @@
-import { arrayToLink } from './../../structures/link/link-to-array';
-import { LinkNode } from '../../structures/link/link-node';
+import { arrayToList } from '../../structures/linked-list/list-to-array';
+import { ListNode } from '../../structures/linked-list/list-node';
 
 import { testRunner, makeTestCases, makeTestCasesOfSingleInput } from '../../helper/test-helper';
 
 // * ------------------------------------------------
 
-type Input = [LinkNode | null, LinkNode | null];
-type Output = LinkNode | null;
+type Input = [ListNode | null, ListNode | null];
+type Output = ListNode | null;
 
-const a2l = arrayToLink;
+const a2l = arrayToList;
 
 const cases = makeTestCases<Input, Output>([
   //

@@ -13,8 +13,9 @@
  * }
  */
 
-class ListNode {
-  constructor(public val: number, public next: ListNode | null = null) {}
+interface ListNode {
+  val: number;
+  next: ListNode | null;
 }
 
 /**
@@ -26,8 +27,7 @@ const swapPairs = (head: ListNode | null): ListNode | null => {
 
   if (head === null) return null;
 
-  const root = new ListNode(0);
-  root.next = head;
+  const root: ListNode = { val: 0, next: head };
 
   let cur = root;
 
@@ -45,4 +45,4 @@ const swapPairs = (head: ListNode | null): ListNode | null => {
 };
 // @lc code=end
 
-export { ListNode, swapPairs };
+export { swapPairs };

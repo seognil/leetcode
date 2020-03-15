@@ -4,7 +4,7 @@
  * [95] Unique Binary Search Trees II
  */
 
-export class TreeNode<T = any> {
+class TreeNode<T = any> {
   constructor(
     public val: T,
     public left: TreeNode<T> | null = null,
@@ -56,4 +56,4 @@ const generateTrees = (n: number): TreeNode[] => {
 };
 // @lc code=end
 
-export { generateTrees };
+export { TreeNode, generateTrees };

@@ -5,21 +5,6 @@
  * [24] Swap Nodes in Pairs
  */
 Object.defineProperty(exports, '__esModule', { value: true });
-// @lc code=start
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-class ListNode {
-  constructor(val, next = null) {
-    this.val = val;
-    this.next = next;
-  }
-}
-exports.ListNode = ListNode;
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -27,8 +12,7 @@ exports.ListNode = ListNode;
 const swapPairs = (head) => {
   // * ['52 ms', '80.94 %', '33.7 MB', '89.47 %']
   if (head === null) return null;
-  const root = new ListNode(0);
-  root.next = head;
+  const root = { val: 0, next: head };
   let cur = root;
   while (cur.next && cur.next.next) {
     const n1 = cur.next;

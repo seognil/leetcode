@@ -1,9 +1,9 @@
-import { LinkNode } from './link-node';
+import { ListNode } from './list-node';
 type val = any;
 
 type ArrayList = val[];
 
-export const linkToArray = (link: LinkNode | null): ArrayList => {
+export const listToArray = (link: ListNode | null): ArrayList => {
   const arr = [];
 
   let cur = link;
@@ -15,12 +15,12 @@ export const linkToArray = (link: LinkNode | null): ArrayList => {
   return arr;
 };
 
-export const arrayToLink = (arr: ArrayList): LinkNode | null => {
-  const head = new LinkNode(null);
+export const arrayToList = (arr: ArrayList): ListNode | null => {
+  const head = new ListNode(null);
 
   let cur = head;
   arr.forEach((e) => {
-    cur.next = new LinkNode(e);
+    cur.next = new ListNode(e);
     cur = cur.next;
   });
 
