@@ -1,4 +1,5 @@
 import { clone } from 'ramda';
+import chalk from 'chalk';
 import stringify from 'fast-safe-stringify';
 
 // * ---------------------------------------------------------------- testCases maker
@@ -32,14 +33,17 @@ export const testRunner: TestRunner = (testCases, solver, fnName = solver.name) 
 
     const fmt = (d: any) => stringify(d);
     const printInputBackup = fmt(inputBackup).replace(/^\[(.*)\]$/, '$1'); // * unwrap [input]
-    const printExpectResult = fmt(output);
-    const printOurResult = fmt(ourResult);
+    const printExpectResult = chalk.green(fmt(output));
+    const printOurResult = chalk.yellow(fmt(ourResult));
 
-    const testTitle = [
-      `${index}: ${fnName}(${printInputBackup})`,
-      `    our: ${printOurResult};`,
-      `    exp: ${printExpectResult}`,
-    ].join('\n');
+    const testTitle =
+      printInputBackup.length < 120 && printOurResult.length < 40 && printExpectResult.length < 40
+        ? `${index}: ${fnName}(${printInputBackup}) => ${printOurResult}; ${printExpectResult}`
+        : [
+            `${index}: ${fnName}(${printInputBackup})`,
+            `    our: ${printOurResult}`,
+            `    exp: ${printExpectResult}`,
+          ].join('\n');
 
     test(testTitle, () => {
       expect(ourResult).toEqual(output);
