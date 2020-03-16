@@ -35,7 +35,11 @@ export const testRunner: TestRunner = (testCases, solver, fnName = solver.name) 
     const printExpectResult = fmt(output);
     const printOurResult = fmt(ourResult);
 
-    const testTitle = `${index}: ${fnName}(${printInputBackup}) => ${printOurResult};  ${printExpectResult}`;
+    const testTitle = [
+      `${index}: ${fnName}(${printInputBackup})`,
+      `    our: ${printOurResult};`,
+      `    exp: ${printExpectResult}`,
+    ].join('\n');
 
     test(testTitle, () => {
       expect(ourResult).toEqual(output);
