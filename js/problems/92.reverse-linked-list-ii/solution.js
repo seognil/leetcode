@@ -14,25 +14,23 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const reverseBetween = (head, m, n) => {
   // * ['48 ms', '95.02 %', '33.7 MB', '57.14 %']
   if (m === n) return head;
-  const root = { val: 0, next: null };
-  root.next = head;
-  let cur = root;
-  for (let i = 1; i < m; i++) {
-    cur = cur.next;
-  }
-  let subRoot = cur;
+  const dummy = { next: null };
+  dummy.next = head;
+  let cur = dummy;
+  for (let i = 1; i < m; i++) cur = cur.next;
+  const subBefore = cur;
+  const subEnd = cur.next;
   cur = cur.next;
-  const subEnd = cur;
-  let root2 = { val: 0, next: null };
+  let dummy2 = { next: null };
   for (let i = m; i <= n; i++) {
     const next = cur.next;
-    const rNext = root2.next;
-    root2.next = cur;
+    const rNext = dummy2.next;
+    dummy2.next = cur;
     cur.next = rNext;
     cur = next;
   }
-  subRoot.next = root2.next;
+  subBefore.next = dummy2.next;
   subEnd.next = cur;
-  return root.next;
+  return dummy.next;
 };
 exports.reverseBetween = reverseBetween;

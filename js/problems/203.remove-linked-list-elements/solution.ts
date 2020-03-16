@@ -30,9 +30,9 @@ const removeElements = (head: MaybeList, val: number): MaybeList => {
 
   if (head === null) return head;
 
-  const root: ListNode = { val: 0, next: head };
+  const dummy = { next: head } as ListNode;
 
-  let cur: MaybeList = root;
+  let cur: MaybeList = dummy;
 
   while (cur.next) {
     if (cur!.next.val === val) {
@@ -43,7 +43,7 @@ const removeElements = (head: MaybeList, val: number): MaybeList => {
     cur = cur.next;
   }
 
-  return root.next;
+  return dummy.next;
 };
 // @lc code=end
 

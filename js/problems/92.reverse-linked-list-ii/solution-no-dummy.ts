@@ -13,9 +13,11 @@
  * }
  */
 
+type MaybeList = ListNode | null;
+
 interface ListNode {
   val: number;
-  next: ListNode | null;
+  next: MaybeList;
 }
 
 /**
@@ -32,19 +34,19 @@ const reverseBetween = (head: ListNode, m: number, n: number): ListNode => {
   const fromMiddle = m !== 1;
 
   let cur: ListNode = head;
-  let subRoot: ListNode;
+  let subBefore: ListNode;
   let subEnd: ListNode;
 
   if (fromMiddle) {
     for (let i = 1; i < m - 1; i++) cur = cur.next!;
-    subRoot = cur;
+    subBefore = cur;
     cur = cur.next!;
   }
 
   subEnd = cur;
 
-  let prev: ListNode | null = null;
-  let next: ListNode | null = null;
+  let prev: MaybeList = null;
+  let next: MaybeList = null;
 
   for (let i = m; i <= n; i++) {
     next = cur.next!;
@@ -53,7 +55,7 @@ const reverseBetween = (head: ListNode, m: number, n: number): ListNode => {
     cur = next;
   }
 
-  if (fromMiddle) subRoot!.next = prev;
+  if (fromMiddle) subBefore!.next = prev;
   subEnd.next = next;
 
   return fromMiddle ? head : prev!;

@@ -28,8 +28,8 @@ class ListNode {
 const addTwoNumbers = (l1: MaybeList, l2: MaybeList): MaybeList => {
   // * ['108 ms', '88.84 %', '38.5 MB', '44.44 %']
 
-  const root = new ListNode();
-  let cur = root;
+  const dummy = new ListNode();
+  let cur = dummy;
   let carry = 0;
 
   while (l1 || l2) {
@@ -44,7 +44,7 @@ const addTwoNumbers = (l1: MaybeList, l2: MaybeList): MaybeList => {
 
   if (carry) cur.next = new ListNode(1);
 
-  return root.next;
+  return dummy.next;
 };
 // @lc code=end
 

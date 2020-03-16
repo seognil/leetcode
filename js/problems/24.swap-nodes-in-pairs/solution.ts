@@ -27,9 +27,9 @@ const swapPairs = (head: ListNode | null): ListNode | null => {
 
   if (head === null) return null;
 
-  const root: ListNode = { val: 0, next: head };
+  const dummy = { next: head } as ListNode;
 
-  let cur = root;
+  let cur = dummy;
 
   while (cur.next && cur.next.next) {
     const n1 = cur.next!;
@@ -41,7 +41,7 @@ const swapPairs = (head: ListNode | null): ListNode | null => {
     cur = n1;
   }
 
-  return root.next;
+  return dummy.next;
 };
 // @lc code=end
 

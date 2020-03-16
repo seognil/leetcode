@@ -30,10 +30,10 @@ const removeNthFromEnd = (head: MaybeList, n: number): MaybeList => {
 
   if (head === null) return head;
 
-  const root: ListNode = { val: 0, next: head };
+  const dummy = { next: head } as ListNode;
 
-  let ahead: MaybeList = root;
-  let behind: MaybeList = root;
+  let ahead: MaybeList = dummy;
+  let behind: MaybeList = dummy;
 
   let count = 0;
   while (count < n) {
@@ -48,7 +48,7 @@ const removeNthFromEnd = (head: MaybeList, n: number): MaybeList => {
 
   behind.next = behind.next!.next;
 
-  return root.next;
+  return dummy.next;
 };
 // @lc code=end
 

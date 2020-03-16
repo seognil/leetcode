@@ -12,8 +12,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const swapPairs = (head) => {
   // * ['52 ms', '80.94 %', '33.7 MB', '89.47 %']
   if (head === null) return null;
-  const root = { val: 0, next: head };
-  let cur = root;
+  const dummy = { next: head };
+  let cur = dummy;
   while (cur.next && cur.next.next) {
     const n1 = cur.next;
     const n2 = n1.next;
@@ -23,6 +23,6 @@ const swapPairs = (head) => {
     cur.next = n2;
     cur = n1;
   }
-  return root.next;
+  return dummy.next;
 };
 exports.swapPairs = swapPairs;

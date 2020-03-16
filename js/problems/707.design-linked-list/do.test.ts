@@ -325,7 +325,7 @@ const testRunnerRaw = (MyLinkedList: MyLinkedListContructor) => {
 // * ------------------------------------------------
 
 import { MyLinkedList as DoublyLinkedList } from './solution';
-import { MyLinkedList as SinglyRoot } from './solution-singly-root';
+import { MyLinkedList as SinglyDummy } from './solution-singly-dummy';
 import { MyLinkedList as SinglyHeadTail } from './solution-singly-head-tail';
 
 describe('MyLinkedList doubly, more code but faster', () => {
@@ -333,7 +333,7 @@ describe('MyLinkedList doubly, more code but faster', () => {
 });
 
 describe('MyLinkedList singly, simple but slow', () => {
-  testRunnerRaw(SinglyRoot);
+  testRunnerRaw(SinglyDummy);
 });
 
 describe('MyLinkedList singly, not so good', () => {

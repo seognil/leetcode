@@ -16,11 +16,11 @@ const reverseBetween = (head, m, n) => {
   if (m === n) return head;
   const fromMiddle = m !== 1;
   let cur = head;
-  let subRoot;
+  let subBefore;
   let subEnd;
   if (fromMiddle) {
     for (let i = 1; i < m - 1; i++) cur = cur.next;
-    subRoot = cur;
+    subBefore = cur;
     cur = cur.next;
   }
   subEnd = cur;
@@ -32,7 +32,7 @@ const reverseBetween = (head, m, n) => {
     prev = cur;
     cur = next;
   }
-  if (fromMiddle) subRoot.next = prev;
+  if (fromMiddle) subBefore.next = prev;
   subEnd.next = next;
   return fromMiddle ? head : prev;
 };

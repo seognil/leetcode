@@ -29,10 +29,10 @@ const oddEvenList = (head: MaybeList): MaybeList => {
 
   if (head === null) return head;
 
-  const root2: ListNode = { val: 0, next: null };
+  const dummy = { next: null } as ListNode;
 
   let p1: ListNode = head;
-  let p2: MaybeList = root2;
+  let p2: MaybeList = dummy;
 
   while (p1.next !== null && p1.next.next !== null) {
     p2 = p2.next = p1.next;
@@ -42,7 +42,7 @@ const oddEvenList = (head: MaybeList): MaybeList => {
   if (p1.next !== null) p2 = p2.next = p1.next;
 
   p2.next = null;
-  p1.next = root2.next;
+  p1.next = dummy.next;
 
   return head;
 };

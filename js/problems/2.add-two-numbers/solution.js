@@ -18,8 +18,8 @@ class ListNode {
  */
 const addTwoNumbers = (l1, l2) => {
   // * ['108 ms', '88.84 %', '38.5 MB', '44.44 %']
-  const root = new ListNode();
-  let cur = root;
+  const dummy = new ListNode();
+  let cur = dummy;
   let carry = 0;
   while (l1 || l2) {
     const val1 = l1 !== null ? l1.val : 0;
@@ -31,6 +31,6 @@ const addTwoNumbers = (l1, l2) => {
     if (l2) l2 = l2.next;
   }
   if (carry) cur.next = new ListNode(1);
-  return root.next;
+  return dummy.next;
 };
 exports.addTwoNumbers = addTwoNumbers;

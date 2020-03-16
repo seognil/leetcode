@@ -13,9 +13,9 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const removeNthFromEnd = (head, n) => {
   // * ['48 ms', '98.59 %', '34.1 MB', '68.18 %']
   if (head === null) return head;
-  const root = { val: 0, next: head };
-  let ahead = root;
-  let behind = root;
+  const dummy = { next: head };
+  let ahead = dummy;
+  let behind = dummy;
   let count = 0;
   while (count < n) {
     ahead = ahead.next;
@@ -26,6 +26,6 @@ const removeNthFromEnd = (head, n) => {
     behind = behind.next;
   }
   behind.next = behind.next.next;
-  return root.next;
+  return dummy.next;
 };
 exports.removeNthFromEnd = removeNthFromEnd;

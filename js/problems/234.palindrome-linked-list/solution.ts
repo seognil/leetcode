@@ -42,7 +42,7 @@ const isPalindrome = (head: MaybeList): boolean => {
   let p2: MaybeList = reverseList(slow.next!);
 
   // * mark for restore data mutation
-  const halfRoot = slow;
+  const halfDummy = slow;
   const halfHead = p2;
 
   // * checking
@@ -53,7 +53,7 @@ const isPalindrome = (head: MaybeList): boolean => {
   }
 
   // * restore our mutation
-  halfRoot.next = reverseList(halfHead);
+  halfDummy.next = reverseList(halfHead);
 
   return true;
 };

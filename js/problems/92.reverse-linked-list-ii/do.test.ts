@@ -38,5 +38,5 @@ const cases = makeTestCases<Input, Output>([
 import { reverseBetween } from './solution';
 testRunner(cases, reverseBetween);
 
-import { reverseBetween as noRoot } from './solution-no-root';
-testRunner(cases, noRoot, 'noRoot');
+import { reverseBetween as noDummy } from './solution-no-dummy';
+testRunner(cases, noDummy, 'noDummy');

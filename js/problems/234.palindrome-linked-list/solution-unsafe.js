@@ -23,7 +23,7 @@ const isPalindrome = (head) => {
   let p1 = head;
   let p2 = reverseList(slow.next);
   // // * mark for restore data mutation
-  // const halfRoot = slow;
+  // const halfDummy = slow;
   // const halfHead = p2;
   // * checking
   while (p2 && p1) {
@@ -32,7 +32,7 @@ const isPalindrome = (head) => {
     p2 = p2.next;
   }
   // // * restore our mutation
-  // halfRoot.next = reverseList(halfHead);
+  // halfDummy.next = reverseList(halfHead);
   return true;
 };
 exports.isPalindrome = isPalindrome;
