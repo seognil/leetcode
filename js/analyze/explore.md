@@ -211,3 +211,85 @@
   - Insert into a Cyclic Sorted List
   - 138：**Copy List with Random Pointer**
   - 61：**Rotate List**
+
+## 哈希表
+
+- 设计哈希表
+  - 哈希表的原理
+  - 设计哈希表的关键
+  - 705：**设计哈希集合**
+  - 706：**设计哈希映射**
+- 实际应用 - 哈希集合
+  - 哈希集 - 用法
+  - 使用哈希集查重
+  - 217：**存在重复元素**
+  - 136：**只出现一次的数字**
+  - 349：**两个数组的交集**
+  - 202：**快乐数**
+- 实际应用 - 哈希映射
+  - 哈希映射 - 用法
+  - 场景 I - 提供更多信息
+  - 1：**两数之和**
+  - 205：**同构字符串**
+  - 599：**两个列表的最小索引总和**
+  - 场景 II - 按键聚合
+  - 387：**字符串中的第一个唯一字符**
+  - 350：**两个数组的交集 II**
+  - 219：**存在重复元素 II**
+  - 日志速率限制器
+- 实际应用 - 设计键
+  - 设计键
+  - 49：**字母异位词分组**
+  - 移位字符串分组
+  - 36：**有效的数独**
+  - 652：**寻找重复的子树**
+  - 设计键 - 总结
+- 小结
+  - 771：**宝石与石头**
+  - 3：**无重复字符的最长子串**
+  - 两数之和 III - 数据结构设计
+  - 454：**四数相加 II**
+  - 347：**前 K 个高频元素**
+  - 单词的唯一缩写
+  - 380：**常数时间插入、删除和获取随机元素**
+
+---
+
+- Design a Hash Table
+  - The Principle of Hash Table
+  - Keys to Design a Hash Table
+  - 705：**Design HashSet**
+  - 706：**Design HashMap**
+- Practical Application - Hash Set
+  - Hash Set - Usage
+  - Find Duplicates By Hash Set
+  - 217：**Contains Duplicate**
+  - 136：**Single Number**
+  - 349：**Intersection of Two Arrays**
+  - 202：**Happy Number**
+- Practical Application - Hash Map
+  - Hash Map - Usage
+  - Scenario I - Provide More Information
+  - 1：**Two Sum**
+  - 205：**Isomorphic Strings**
+  - 599：**Minimum Index Sum of Two Lists**
+  - Scenario II - Aggregate by Key
+  - 387：**First Unique Character in a String**
+  - 350：**Intersection of Two Arrays II**
+  - 219：**Contains Duplicate II**
+  - Logger Rate Limiter
+- Practical Application - Design the Key
+  - Design the Key
+  - 49：**Group Anagrams**
+  - Group Shifted Strings
+  - 36：**Valid Sudoku**
+  - 652：**Find Duplicate Subtrees**
+  - Design the Key - Summary
+- Conclusion
+  - 771：**Jewels and Stones**
+  - 3：**Longest Substring Without Repeating Characters**
+  - Two Sum III - Data structure design
+  - 454：**4Sum II**
+  - 347：**Top K Frequent Elements**
+  - Unique Word Abbreviation
+  - 380：**Insert Delete GetRandom O(1)**
