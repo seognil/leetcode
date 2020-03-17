@@ -287,9 +287,9 @@ const linkedList = [
 
   [21],
   [2, ['108 ms', '88.84 %', '38.5 MB', '44.44 %']],
-  [430, ['48 ms', '96.35 %', '34.3 MB', '100 %']],
-  [138],
-  [61],
+  [430, ['52 ms', '89.91 %', '34.1 MB', '100 %']],
+  [138, ['52 ms', '90.58 %', '35.7 MB', '100 %']],
+  [61, ['56 ms', '97.98 %', '35.7 MB', '100 %']],
 ];
 
 const others = [
@@ -300,7 +300,7 @@ const others = [
 parseAccepted(`
 
 Accepted
-22/22 cases passed (48 ms)
-Your runtime beats 96.35 % of javascript submissions
-Your memory usage beats 100 % of javascript submissions (34.3 MB)
+231/231 cases passed (56 ms)
+Your runtime beats 97.98 % of javascript submissions
+Your memory usage beats 100 % of javascript submissions (35.7 MB)
 `);
