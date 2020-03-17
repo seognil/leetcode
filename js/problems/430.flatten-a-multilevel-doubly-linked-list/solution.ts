@@ -34,13 +34,6 @@ const flatten = (head: MaybeNode): MaybeNode => {
 
   flattenReturnEnd(head);
 
-  let cur = head;
-  while (cur.next) {
-    cur.next.prev = cur;
-    cur.child = null;
-    cur = cur.next;
-  }
-
   return head;
 };
 
@@ -49,11 +42,19 @@ const flattenReturnEnd = (head: Node): Node => {
 
   while (cur.next || cur.child) {
     if (cur.child) {
-      const subEnd = flattenReturnEnd(cur.child);
-      subEnd.next = cur.next;
-      cur.next = cur.child;
+      const next = cur.next;
+      const child = cur.child;
+      const childEnd = flattenReturnEnd(cur.child);
+
       cur.child = null;
-      cur = subEnd;
+
+      cur.next = child;
+      child.prev = cur;
+
+      childEnd.next = next;
+      if (next !== null) next.prev = childEnd;
+
+      cur = childEnd;
     } else {
       cur = cur.next!;
     }
