@@ -28,7 +28,7 @@ interface Node {
  * @return {Node}
  */
 const flatten = (head: MaybeNode): MaybeNode => {
-  // * ['48 ms', '96.35 %', '34.3 MB', '100 %']
+  // * ['52 ms', '89.91 %', '34.1 MB', '100 %']
 
   if (head === null) return head;
 
