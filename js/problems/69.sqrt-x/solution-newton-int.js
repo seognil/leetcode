@@ -11,16 +11,17 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * @return {number}
  */
 const mySqrt = (x) => {
-  // * ['64 ms', '94.8 %', '35.8 MB', '33.33 %']
+  // * ['68 ms', '88.05 %', '35.5 MB', '94.44 %']
   // * find interger sqrt
-  // * Newton's method
+  // * Newton's method, mock int divide
   if (x < 2) return x;
   let cur = x;
   while (true) {
-    const next = (cur + x / cur) / 2;
-    if (Math.abs(next - cur) < 1e-6) break;
+    const next = divide(cur + divide(x, cur), 2);
+    if (next >= cur) break;
     cur = next;
   }
-  return Math.floor(cur);
+  return cur;
 };
 exports.mySqrt = mySqrt;
+const divide = (x, y) => Math.floor(x / y);
