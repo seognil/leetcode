@@ -25,22 +25,22 @@ const guessNumber = (n: number): number => {
   let left = 0;
   let right = n;
 
-  let pivot = 0;
+  let mid = 0;
 
   while (left <= right) {
-    pivot = ~~((left + right) / 2);
+    mid = ~~((left + right) / 2);
     // @ts-ignore
-    const check = guess(pivot);
+    const check = guess(mid);
     if (check === 1) {
-      left = pivot + 1;
+      left = mid + 1;
     } else if (check === -1) {
-      right = pivot - 1;
+      right = mid - 1;
     } else {
       break;
     }
   }
 
-  return pivot;
+  return mid;
 };
 // @lc code=end
 

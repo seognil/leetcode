@@ -17,24 +17,24 @@ const search = (nums: number[], target: number): number => {
   let r = nums.length - 1;
 
   while (l <= r) {
-    const pivot = ~~((l + r) / 2);
+    const mid = ~~((l + r) / 2);
     const valLeft = nums[l];
     const valRight = nums[r];
-    const valMid = nums[pivot];
+    const valMid = nums[mid];
 
-    if (valMid === target) return pivot;
+    if (valMid === target) return mid;
 
     if (valMid < valRight) {
       if (valMid < target && target <= valRight) {
-        l = pivot + 1;
+        l = mid + 1;
       } else {
-        r = pivot - 1;
+        r = mid - 1;
       }
     } else {
       if (valLeft <= target && target < valMid) {
-        r = pivot - 1;
+        r = mid - 1;
       } else {
-        l = pivot + 1;
+        l = mid + 1;
       }
     }
   }

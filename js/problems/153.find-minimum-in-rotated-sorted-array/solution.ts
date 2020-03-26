@@ -16,14 +16,14 @@ const findMin = (nums: number[]): number => {
   let r = nums.length - 1;
 
   while (l < r) {
-    const pivot = ~~((l + r) / 2);
+    const mid = ~~((l + r) / 2);
 
-    if (nums[pivot - 1] > nums[pivot]) return nums[pivot];
+    if (nums[mid - 1] > nums[mid]) return nums[mid];
 
-    if (nums[pivot] < nums[r]) {
-      r = pivot - 1;
+    if (nums[mid] < nums[r]) {
+      r = mid - 1;
     } else {
-      l = pivot + 1;
+      l = mid + 1;
     }
   }
 

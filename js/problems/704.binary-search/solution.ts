@@ -16,13 +16,13 @@ const search = (nums: number[], target: number): number => {
   let right = nums.length - 1;
 
   while (left <= right) {
-    const pivot = ~~((left + right) / 2);
-    if (target > nums[pivot]) {
-      left = pivot + 1;
-    } else if (target < nums[pivot]) {
-      right = pivot - 1;
+    const mid = ~~((left + right) / 2);
+    if (target > nums[mid]) {
+      left = mid + 1;
+    } else if (target < nums[mid]) {
+      right = mid - 1;
     } else {
-      return pivot;
+      return mid;
     }
   }
 
