@@ -51,3 +51,5 @@ const cases = makeTestCases<Input, Output>([
 
 import { searchRange } from './solution';
 testRunner(cases, searchRange);
+import { searchRange as simplerBS } from './solution-semi-bs';
+testRunner(cases, simplerBS);
