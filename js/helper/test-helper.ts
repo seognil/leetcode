@@ -19,34 +19,63 @@ export const makeTestCasesOfSingleInput: CaseMakerS = (cases) =>
 
 export const makeTestCases: CaseMakerM = (cases) => cases;
 
-// * ---------------------------------------------------------------- singleTestRunner
+// * ---------------------------------------------------------------- test runner factory
 
-type TestRunner = (testCases: TestCases, solver: Function, fnName?: string) => void;
+type ResultHandler<T = Output, K = any> = (a: T) => K;
 
-export const testRunner: TestRunner = (testCases, solver, fnName = solver.name) => {
+type TestRunnerUnity = (
+  testCases: TestCases,
+  solver: Function,
+  config?: {
+    label?: string;
+    resultHandler?: ResultHandler;
+  },
+) => void;
+
+const testRunnerUnity: TestRunnerUnity = (testCases, solver, config = {}) => {
+  const { label = '', resultHandler = (e) => e } = config;
+
+  const fnName = solver.name;
+  const fmt = (d: any) => stringify(d);
+
   clone(testCases).forEach(({ input, output }, index) => {
-    const inputBackup = clone(input);
-    const rawResult = solver(...input);
+    const inputMirror = clone(input);
+    const outputMirror = clone(output);
 
-    // * if return nothing, the data must be inplace modified
-    const ourResult = rawResult === undefined ? input[0] : rawResult;
+    const rawResult = solver(...inputMirror);
 
-    const fmt = (d: any) => stringify(d);
-    const printInputBackup = fmt(inputBackup).replace(/^\[(.*)\]$/, '$1'); // * unwrap [input]
+    // * if return nothing, the data must be modified inplaced
+    const ourResult = rawResult === undefined ? inputMirror[0] : rawResult;
+
+    const printInputBackup = fmt(input).replace(/^\[(.*)\]$/, '$1'); // * unwrap [input]
     const printExpectResult = chalk.green(fmt(output));
     const printOurResult = chalk.yellow(fmt(ourResult));
 
-    const testTitle =
+    // * display function call detail
+    const testTitle: string =
       printInputBackup.length < 120 && printOurResult.length < 40 && printExpectResult.length < 40
-        ? `${index}: ${fnName}(${printInputBackup}) => ${printOurResult}; ${printExpectResult}`
+        ? `${label} ${index}: ${fnName}(${printInputBackup}) => ${printOurResult}; ${printExpectResult}`
         : [
-            `${index}: ${fnName}(${printInputBackup})`,
+            `${label} ${index}: ${fnName}(${printInputBackup})`,
             `    our: ${printOurResult}`,
             `    exp: ${printExpectResult}`,
           ].join('\n');
 
     test(testTitle, () => {
-      expect(ourResult).toEqual(output);
+      expect(resultHandler(ourResult)).toEqual(resultHandler(output));
     });
   });
 };
+
+// * ------------------------------------------------ test runner utility
+
+type TestRunner = (testCases: TestCases, solver: Function, label?: string) => void;
+
+export const testRunner: TestRunner = (testCases, solver, label = '') =>
+  testRunnerUnity(testCases, solver, { label });
+
+export const compareBy = <O>(resultHandler: ResultHandler<O>): TestRunner => (
+  testCases,
+  solver,
+  label = '',
+) => testRunnerUnity(testCases, solver, { label, resultHandler });
