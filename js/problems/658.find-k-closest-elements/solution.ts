@@ -14,15 +14,14 @@
 const findClosestElements = (arr: number[], k: number, x: number): number[] => {
   // * ['88 ms', '88.12 %', '40.4 MB', '100 %']
 
-  // * https://www.cnblogs.com/grandyang/p/7519466.html
-
   let left = 0;
   let right = arr.length - k;
 
   while (left < right) {
     const mid = ~~((left + right) / 2);
 
-    if (arr[mid] + arr[mid + k] < 2 * x) {
+    // * https://www.cnblogs.com/grandyang/p/7519466.html
+    if (x - arr[mid] > arr[mid + k] - x) {
       left = mid + 1;
     } else {
       right = mid;
