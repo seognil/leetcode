@@ -35,31 +35,40 @@ type TestRunnerUnity = (
 const testRunnerUnity: TestRunnerUnity = (testCases, solver, config = {}) => {
   const { label = '', resultHandler = (e) => e } = config;
 
+  const fancyLabel = label.length ? chalk.cyanBright(`[${label}]`) + ' ' : '';
+
   const fnName = solver.name;
   const fmt = (d: any) => stringify(d);
 
   clone(testCases).forEach(({ input, output }, index) => {
-    const inputMirror = clone(input);
-    const outputMirror = clone(output);
+    // * unwrap display input, e.g. `fn([1,2])` -> `fn(1,2)`
+    const printInput = fmt(input).replace(/^\[(.*)\]$/, '$1');
+    const printExpectResult = chalk.green(fmt(output));
 
-    const rawResult = solver(...inputMirror);
+    const rawResult = solver(...input);
 
     // * if return nothing, the data must be modified inplaced
-    const ourResult = rawResult === undefined ? inputMirror[0] : rawResult;
+    const ourResult = rawResult === undefined ? input[0] : rawResult;
 
-    const printInputBackup = fmt(input).replace(/^\[(.*)\]$/, '$1'); // * unwrap [input]
-    const printExpectResult = chalk.green(fmt(output));
     const printOurResult = chalk.yellow(fmt(ourResult));
 
-    // * display function call detail
-    const testTitle: string =
-      printInputBackup.length < 120 && printOurResult.length < 40 && printExpectResult.length < 40
-        ? `${label} ${index}: ${fnName}(${printInputBackup}) => ${printOurResult}; ${printExpectResult}`
-        : [
-            `${label} ${index}: ${fnName}(${printInputBackup})`,
-            `    our: ${printOurResult}`,
-            `    exp: ${printExpectResult}`,
-          ].join('\n');
+    // * ---------------- display function call detail
+    // * e.g. `fn(1,2) => 3; 3`
+
+    const tooLong =
+      printInput.length > 100 || printOurResult.length > 30 || printExpectResult.length > 30;
+
+    const oneLineInfo = `${fancyLabel}${index}: ${fnName}(${printInput}) => ${printOurResult}; ${printExpectResult}`;
+
+    const threeLineInfo = [
+      `${fancyLabel}${index}: ${fnName}(${printInput})`,
+      `    our: ${printOurResult}`,
+      `    exp: ${printExpectResult}`,
+    ].join('\n');
+
+    const testTitle: string = tooLong ? threeLineInfo : oneLineInfo;
+
+    // * ---------------- run test
 
     test(testTitle, () => {
       expect(resultHandler(ourResult)).toEqual(resultHandler(output));
