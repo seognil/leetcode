@@ -9,17 +9,17 @@
  * @return {number[]}
  */
 const twoSum = (numbers: number[], target: number): number[] => {
-  let i = 0;
-  let j = numbers.length - 1;
+  let left = 0;
+  let right = numbers.length - 1;
 
-  while (i < j) {
-    const sum = numbers[i] + numbers[j];
+  while (left < right) {
+    const sum = numbers[left] + numbers[right];
     if (sum === target) break;
-    if (sum > target) j--;
-    if (sum < target) i++;
+    if (sum > target) right--;
+    if (sum < target) left++;
   }
 
-  return [i + 1, j + 1];
+  return [left + 1, right + 1];
 };
 
 export { twoSum };
