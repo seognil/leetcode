@@ -1,17 +1,36 @@
-# JS 本地刷题
+# TypeScript 本地刷题
 
-## 功能
+## 目录
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [需求](#%E9%9C%80%E6%B1%82)
+- [安装](#%E5%AE%89%E8%A3%85)
+  - [Step 1](#step-1)
+  - [Step 2](#step-2)
+- [单元测试](#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95)
+  - [API](#api)
+    - [makeTestCases](#maketestcases)
+    - [makeTestCasesOfSingleInput](#maketestcasesofsingleinput)
+    - [testRunner](#testrunner)
+    - [compareBy](#compareby)
+- [模块化注意事项](#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## 需求
 
 TypeScript 的静态类型检查和自动完成都是好东西，  
-它们能极大地提升开发体验，  
+它们能极大地提升编程体验，  
 但是 LeetCode 还不支持以 TypeScript 提交。
 
-同时最好能先在本地测试代码。
+并且，在提交之前，最好能先在本地进行单元测试。
 
 我配置了一个自动化脚本，拥有以下功能：
 
-- 用 TypeScript 刷题（当然 JavaScript 也支持）
-- 自动编译 TS 到 JS 以便能够提交（会多两行模块化代码，不影响提交）
+- 用 TypeScript 刷题（当然 JavaScript 也能支持）
+- 自动编译 TS 到 JS 以便能够提交（会多两行模块化代码，不会影响提交运行）
 - 自动进行单元测试（有本地测试用例时）
 - 在 git commit 的时候自动使用 eslint 和 prettier 对代码进行规范化
 
@@ -115,89 +134,109 @@ testRunner(cases, solution2, 'displayAnotherFunctionName');
 testRunner(cases, solution3, 'anotherSolution');
 ```
 
-其中有三个 API
+### API
 
-- **makeTestCases**
+我做了一些方法来辅助我的测试
 
-  这个 API 封装测试用例，  
-  本身其实不进行任何数据处理，  
-  主要用于添加数据类型，并保持一致性。
+- **makeTestCases**：生成测试用例
+- **makeTestCasesOfSingleInput**：生成测试用例（单输入的情况）
+- **testRunner**：进行用例测试
+- **compareBy**：生成 自定义 testRunner
 
-  函数可能有需要多个参数的情况，  
-  多个参数可以以单个数组的形式传递，  
-  原理是：
+---
 
-  ```ts
-  const myCase = {
-    input: [a, b],
-    output: c,
-  };
+#### makeTestCases
 
-  solution(a, b) === c;
-  solution(...myCase.input) === c;
-  ```
+这个 API 封装测试用例，  
+ 本身其实不进行任何数据处理，  
+ 主要用于添加数据类型，并保持一致性。
 
-- **makeTestCasesOfSingleInput**
+函数可能有需要多个参数的情况，  
+ 多个参数可以以单个数组的形式传递，  
+ 原理是：
 
-  对于单参数的情况，  
-  可以不写最外层干扰视线的方括号，  
-  测试用例中可以直接写参数本身。
+```ts
+const myCase = {
+  input: [a, b],
+  output: c,
+};
 
-  ```ts
-  const casesA = makeTestCasesOfSingleInput<number, number>([
-    {
-      input: 2,
-      output: 2,
-    },
-  ]);
+solution(a, b) === c;
+solution(...myCase.input) === c;
+```
 
-  const casesB = makeTestCases<number, number>([
-    {
-      input: [2],
-      output: 2,
-    },
-  ]);
+#### makeTestCasesOfSingleInput
 
-  const casesC = [
-    {
-      input: [2],
-      output: 2,
-    },
-  ];
+对于单参数的情况，  
+ 可以不写最外层干扰视线的方括号，  
+ 测试用例中可以直接写参数本身。
 
-  // * 以上三者都等价
-  ```
+```ts
+const casesA = makeTestCasesOfSingleInput<number, number>([
+  {
+    input: 2,
+    output: 2,
+  },
+]);
 
-  数据形状确保是一致的，那么后续进行测试就方便多了。
+const casesB = makeTestCases<number, number>([
+  {
+    input: [2],
+    output: 2,
+  },
+]);
 
-- **testRunner**
+const casesC = [
+  {
+    input: [2],
+    output: 2,
+  },
+];
 
-  ```ts
-  type TestRunner = (testCases: TestCases, solver: Function, fnName?: string) => void;
-  ```
+// * 以上三者都等价
+```
 
-  测试每个用例，并显示测试信息。
+数据形状确保是一致的，那么后续进行测试就方便多了。
 
-  也支持原地算法（直接修改输入数据，不返回新数据）的情况，  
-  （如 [第 344 题](https://leetcode-cn.com/problems/reverse-string/)）
+#### testRunner
 
-  如果需要测试多个解答时，  
-  可选的第三个参数能在测试中区分显示函数名。  
-  比如：
+```ts
+type TestRunner = (testCases: TestCases, solver: Function, fnName?: string) => void;
+```
 
-  ```ts
-  import { solution } from './solution';
-  import { solution as solution2 } from './solution-2';
-  import { solution as solution3 } from './solution-3';
-  testRunner(cases, solution);
-  testRunner(cases, solution2, 'displayAnotherFunctionName');
-  testRunner(cases, solution3, 'anotherSolution');
-  ```
+测试每个用例，并显示测试信息。
 
-## TypeScript
+也支持原地算法（直接修改输入数据，不返回新数据）的情况，  
+ （如 [第 344 题](https://leetcode-cn.com/problems/reverse-string/)）
+
+如果需要测试多个解答时，  
+ 可选的第三个参数能在测试中区分显示函数名。  
+ 比如：
+
+```ts
+import { solution } from './solution';
+import { solution as solution2 } from './solution-2';
+import { solution as solution3 } from './solution-3';
+testRunner(cases, solution);
+testRunner(cases, solution2, 'displayAnotherFunctionName');
+testRunner(cases, solution3, 'anotherSolution');
+```
+
+#### compareBy
+
+```ts
+const myTestRunner = compareBy<Output>((a) => a.sort());
+```
+
+对于一些题目（如 349），返回的数组不要求顺序一致。  
+ 那么可以调整测试的判断逻辑，生成自定义的测试运行器。  
+ 而不用强行修改算法本身来通过单元测试了。
+
+## 模块化注意事项
 
 为了支持测试，需要模块化导出，  
-模块化的写法需要和声明分开。
+模块化的写法必须和声明分开。
+
 比如：
 
 ```ts
@@ -207,7 +246,7 @@ const solution = (str: string): string => {};
 export { solution };
 ```
 
-会编译成以下 JS 代码，这不会影响提交：
+会编译成以下 JS 代码，这样不会影响提交：
 
 ```ts
 // * js
@@ -216,7 +255,7 @@ const solution = (str) => {};
 exports.solution = solution;
 ```
 
-不能写成下面的形式：
+而不能写成下面的形式：
 
 ```ts
 // * ts
