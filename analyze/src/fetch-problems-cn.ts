@@ -1,6 +1,6 @@
-import { LOCKED, Problem } from './problem.d';
+import { LOCKED, Problem } from './types';
 
-const problemsCn: Problem[] = [
+export const problemsCn: Problem[] = [
   ['1', '两数之和', '简单', '48.0%'],
   ['2', '两数相加', '中等', '37.0%'],
   ['3', '无重复字符的最长子串', '中等', '33.6%'],
