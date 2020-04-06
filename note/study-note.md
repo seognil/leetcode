@@ -32,7 +32,7 @@ So, we should tend to use `string way` in the future. But remember it varies bet
   for (let i = loop; i > 0; i--) {
     str += 'String concatenation. ';
   }
-  console.warn('string way', Date.now() - s);
+  console.log('string way', Date.now() - s);
 
   // * ---------------- array way
 
@@ -43,7 +43,7 @@ So, we should tend to use `string way` in the future. But remember it varies bet
     sArr[i] = 'String concatenation. ';
   }
   str = sArr.join('');
-  console.warn('array way', Date.now() - s);
+  console.log('array way', Date.now() - s);
 }
 ```
 

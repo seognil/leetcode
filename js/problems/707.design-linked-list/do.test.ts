@@ -1,20 +1,6 @@
 import { listToArray } from '../../structures/linked-list/list-to-array';
 import { MyLinkedListContructor } from './types.d';
 
-// @ts-ignore
-const displayArr = (linkedList) => {
-  // @ts-ignore
-  let cur = linkedList.root || linkedList.head;
-  let show = [cur.val];
-  while (cur.next) {
-    cur = cur.next;
-    show.push(cur.val);
-  }
-  if (show[0] === 0) show = show.slice(1);
-  // @ts-ignore
-  console.log(linkedList.length, show);
-};
-
 // * ------------------------------------------------
 
 const testRunnerRaw = (MyLinkedList: MyLinkedListContructor) => {

@@ -7,7 +7,7 @@ export const parseAccepted = (str: string): string => {
   const result = [ms, runbeat, ram, rambeat].map((e) => `'${e}'`).join(', ');
   const printResult = `[${result}]`;
 
-  console.warn('\n', printResult, '\n');
+  console.log('\n', printResult, '\n');
 
   return printResult;
 };

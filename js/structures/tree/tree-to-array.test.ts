@@ -54,7 +54,6 @@ describe('glitch case manually fixed', () => {
   const arr = fixTreeArray([1, null, 2, 3]);
 
   test('treeToArray', () => {
-    console.log(treeToArray(t0));
     expect(treeToArray(t0)).toEqual(arr);
   });
 
@@ -75,7 +74,6 @@ describe('glitch case auto fixed', () => {
   const arr = [1, null, 2, 3];
 
   test('treeToArray', () => {
-    console.log(treeToArray(t0));
     expect(treeToArray(t0)).toEqual(fixTreeArray(arr));
   });
 
