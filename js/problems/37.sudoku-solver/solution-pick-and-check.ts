@@ -16,7 +16,7 @@ type Pos = [number, number];
  * @return {void} Do not return anything, modify board in-place instead.
  */
 const solveSudoku = (board: Board): void => {
-  // * ['76 ms', '84.73 %', '37.4 MB', '100 %']
+  // * ['72 ms', '91.64 %', '37.7 MB', '100 %']
 
   solveSudokuWithFlag(board, 0);
 };
@@ -26,9 +26,12 @@ const solveSudokuWithFlag = (board: Board, fromRow: number): boolean => {
   if (pos === null) return true;
 
   const [row, col] = pos;
-  const list = getCandidates(board, row, col);
-  for (let i = 0; i < list.length; i++) {
-    board[row][col] = list[i];
+
+  for (let i = 1; i <= 9; i++) {
+    const char = String(i) as Char;
+    if (!isValidPick(board, row, col, char)) continue;
+
+    board[row][col] = char;
     if (solveSudokuWithFlag(board, row)) return true;
     board[row][col] = '.';
   }
@@ -36,27 +39,21 @@ const solveSudokuWithFlag = (board: Board, fromRow: number): boolean => {
   return false;
 };
 
-const getCandidates = (board: Board, row: number, col: number): Char[] => {
-  const candidates: (Char | null)[] = [null, '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-  const removeCandi = (c: Char | '.') => {
-    if (c !== '.') candidates[Number(c)] = null;
-  };
-
+const isValidPick = (board: Board, row: number, col: number, char: Char): boolean => {
   for (let i = 0; i < 9; i++) {
-    removeCandi(board[row][i]);
-    removeCandi(board[i][col]);
+    if (board[row][i] === char) return false;
+    if (board[i][col] === char) return false;
   }
 
   const blockX = Math.floor(row / 3) * 3;
   const blockY = Math.floor(col / 3) * 3;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      removeCandi(board[blockX + i][blockY + j]);
+      if (board[blockX + i][blockY + j] === char) return false;
     }
   }
 
-  return candidates.filter((c) => c !== null) as Char[];
+  return true;
 };
 
 const findEmptySlot = (board: Board, fromRow: number): Pos | null => {

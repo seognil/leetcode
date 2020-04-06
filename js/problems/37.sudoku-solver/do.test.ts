@@ -40,3 +40,6 @@ const cases = makeTestCasesOfSingleInput<Input, Output>([
 
 import { solveSudoku } from './solution';
 testRunner(cases, solveSudoku);
+
+import { solveSudoku as pickAndCheck } from './solution-pick-and-check';
+testRunner(cases, pickAndCheck, 'pick and check');
