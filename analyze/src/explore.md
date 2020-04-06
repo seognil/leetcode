@@ -44,11 +44,11 @@
   - 设计循环队列
   - 循环队列 - 实现
   - 队列 - 用法
-  - L：**数据流中的移动平均值**
+  - 346：**数据流中的移动平均值**
 - 队列和广度优先搜索
   - 队列和 BFS
   - 广度优先搜索 - 模板
-  - L：**墙与门**
+  - 286：**墙与门**
   - 200：**岛屿数量**
   - 752：**打开转盘锁**
   - 279：**完全平方数**
@@ -155,7 +155,7 @@
   - Backtracking
   - 52：**N-Queens II**
   - Backtracking Template
-  - ！：**Robot Room Cleaner**
+  - 489：**Robot Room Cleaner**
   - 37：**Sudoku Solver**
   - 77：**Combinations**
 - Recursion to Iteration
@@ -166,7 +166,7 @@
   - 102：**Binary Tree Level Order Traversal**
 - Conclusion
   - Beyond Recursion
-  - ！：**Convert Binary Search Tree to Sorted Doubly Linked List**
+  - 426：**Convert Binary Search Tree to Sorted Doubly Linked List**
   - 84：**Largest Rectangle in Histogram**
   - 46：**Permutations**
   - 17：**Letter Combinations of a Phone Number**
@@ -349,8 +349,8 @@
   - 162：**寻找峰值**
 - 模板分析
   - 二分查找模板分析
-  - ！：**最接近的二叉搜索树值**
-  - ！：**搜索长度未知的有序数组**
+  - 270：**最接近的二叉搜索树值**
+  - 702：**搜索长度未知的有序数组**
 - 小结
   - 50：**Pow(x, n)**
   - 367：**有效的完全平方数**
@@ -423,7 +423,7 @@
   - N 叉树的经典递归解法
   - 559：**Maximum Depth of N-ary Tree**
 - 小结
-  - ！：**序列化和反序列化 N 叉树**
+  - 428：**序列化和反序列化 N 叉树**
 
 ## 前缀树
 
@@ -438,12 +438,12 @@
 - 实际应用 I
   - 677：**Map Sum Pairs**
   - 648：**单词替换**
-  - ！：**设计搜索自动补全系统**
+  - 642：**设计搜索自动补全系统**
   - 211：**添加与搜索单词 - 数据结构设计**
 - 实际应用 II
   - 421：**数组中两个数的最大异或值**
   - 212：**单词搜索 II**
-  - ！：**单词方块**
+  - 425：**单词方块**
   - 336：**回文对**
 
 ## 初级算法

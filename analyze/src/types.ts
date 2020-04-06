@@ -7,3 +7,5 @@ type Locked = 'LOCKED';
 export const LOCKED = 'LOCKED';
 
 export type Problem = [Index, Title, Difficulty, Acceptance, Locked?];
+
+export type UrlList = [string, string][];

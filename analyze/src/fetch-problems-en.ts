@@ -1,4 +1,4 @@
-import { LOCKED, Problem } from './problem';
+import { LOCKED, Problem } from './types';
 
 const problemsEn: Problem[] = [
   ['1', 'Two Sum', 'Easy', '45.2%'],
@@ -1292,7 +1292,12 @@ const problemsEn: Problem[] = [
   ['1289', 'Minimum Falling Path Sum II', 'Hard', '59.2%'],
   ['1290', 'Convert Binary Number in a Linked List to Integer', 'Easy', '79.7%'],
   ['1291', 'Sequential Digits', 'Medium', '52.1%'],
-  ['1292', 'Maximum Side Length of a Square with Sum Less than or Equal to Threshold', 'Medium', '46.2%'],
+  [
+    '1292',
+    'Maximum Side Length of a Square with Sum Less than or Equal to Threshold',
+    'Medium',
+    '46.2%',
+  ],
   ['1293', 'Shortest Path in a Grid with Obstacles Elimination', 'Hard', '42.0%'],
   ['1294', 'Weather Type in Each Country', 'Easy', '63.9%', LOCKED],
   ['1295', 'Find Numbers with Even Number of Digits', 'Easy', '84.6%'],
@@ -1334,7 +1339,12 @@ const problemsEn: Problem[] = [
   ['1331', 'Rank Transform of an Array', 'Easy', '58.8%'],
   ['1332', 'Remove Palindromic Subsequences', 'Easy', '57.2%'],
   ['1333', 'Filter Restaurants by Vegan-Friendly, Price and Distance', 'Medium', '53.0%'],
-  ['1334', 'Find the City With the Smallest Number of Neighbors at a Threshold Distance', 'Medium', '42.1%'],
+  [
+    '1334',
+    'Find the City With the Smallest Number of Neighbors at a Threshold Distance',
+    'Medium',
+    '42.1%',
+  ],
   ['1335', 'Minimum Difficulty of a Job Schedule', 'Hard', '56.2%'],
   ['1336', 'Number of Transactions per Visit', 'Hard', '43.4%', LOCKED],
   ['1337', 'The K Weakest Rows in a Matrix', 'Easy', '68.6%'],
@@ -1343,7 +1353,12 @@ const problemsEn: Problem[] = [
   ['1340', 'Jump Game V', 'Hard', '56.0%'],
   ['1341', 'Movie Rating', 'Medium', '53.9%', LOCKED],
   ['1342', 'Number of Steps to Reduce a Number to Zero', 'Easy', '86.2%'],
-  ['1343', 'Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold', 'Medium', '63.2%'],
+  [
+    '1343',
+    'Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold',
+    'Medium',
+    '63.2%',
+  ],
   ['1344', 'Angle Between Hands of a Clock', 'Medium', '60.6%'],
   ['1345', 'Jump Game IV', 'Hard', '34.8%'],
   ['1346', 'Check If N and Its Double Exist', 'Easy', '40.6%'],
