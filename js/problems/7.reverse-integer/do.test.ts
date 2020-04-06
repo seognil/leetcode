@@ -17,4 +17,5 @@ const cases = makeTestCasesOfSingleInput<Input, Output>([
 
 // * ------------------------------------------------
 
-testRunner(cases, require('./solution'));
+import { reverse } from './solution';
+testRunner(cases, reverse);

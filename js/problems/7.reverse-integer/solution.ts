@@ -31,4 +31,4 @@ const reverse = (x: number): number => {
 };
 // @lc code=end
 
-module.exports = reverse;
+export { reverse };
