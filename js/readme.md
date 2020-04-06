@@ -16,6 +16,8 @@
     - [testRunner](#testrunner)
     - [compareBy](#compareby)
 - [模块化注意事项](#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+  - [导出声明](#%E5%AF%BC%E5%87%BA%E5%A3%B0%E6%98%8E)
+  - [ESM vs CJS](#esm-vs-cjs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -234,6 +236,8 @@ const myTestRunner = compareBy<Output>((a) => a.sort());
 
 ## 模块化注意事项
 
+### 导出声明
+
 为了支持测试，需要模块化导出，  
 模块化的写法必须和声明分开。
 
@@ -255,7 +259,7 @@ const solution = (str) => {};
 exports.solution = solution;
 ```
 
-而不能写成下面的形式：
+而不能连着写：
 
 ```ts
 // * ts
@@ -269,5 +273,38 @@ export const solution = () => {};
 exports.solution = () => {};
 ```
 
-虽然显得麻烦一点，  
-反正，刷题的重点和难点在于算法本身不是吗？
+### ESM vs CJS
+
+此外，如果 TS 源码采用 CJS 风格，
+
+```ts
+module.exports = solution;
+```
+
+在有多个解答文件时，会报以下错误：
+
+> Cannot redeclare block-scoped variable 'solution'
+
+并且貌似没有什么优雅的解决方案。
+
+同时，测试中如果使用 `require('./solution')` 导入解答函数，  
+则无法支持 VS Code 的 `Update Imports On File Move` 功能。
+
+所以，推荐一律使用 ESM 风格，
+
+```ts
+// * solution.ts
+const solution = (str: string): string => {};
+
+export { solution };
+```
+
+```ts
+// * do.test.ts
+import { solution } from './solution';
+
+testRunner(cases, solution);
+```
+
+虽然可能显得麻烦和啰嗦一点，  
+但总之，刷题的重点和难点在于算法本身不是吗？
