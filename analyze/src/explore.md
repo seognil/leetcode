@@ -268,21 +268,21 @@
   - 387：**字符串中的第一个唯一字符**
   - 350：**两个数组的交集 II**
   - 219：**存在重复元素 II**
-  - 日志速率限制器
+  - 359：**日志速率限制器**
 - 实际应用 - 设计键
   - 设计键
   - 49：**字母异位词分组**
-  - 移位字符串分组
+  - 249：**移位字符串分组**
   - 36：**有效的数独**
   - 652：**寻找重复的子树**
   - 设计键 - 总结
 - 小结
   - 771：**宝石与石头**
   - 3：**无重复字符的最长子串**
-  - 两数之和 III - 数据结构设计
+  - 170：**两数之和 III - 数据结构设计**
   - 454：**四数相加 II**
   - 347：**前 K 个高频元素**
-  - 单词的唯一缩写
+  - 288：**单词的唯一缩写**
   - 380：**常数时间插入、删除和获取随机元素**
 
 ---
@@ -309,21 +309,21 @@
   - 387：**First Unique Character in a String**
   - 350：**Intersection of Two Arrays II**
   - 219：**Contains Duplicate II**
-  - Logger Rate Limiter
+  - 359：**Logger Rate Limiter**
 - Practical Application - Design the Key
   - Design the Key
   - 49：**Group Anagrams**
-  - Group Shifted Strings
+  - 249：**Group Shifted Strings**
   - 36：**Valid Sudoku**
   - 652：**Find Duplicate Subtrees**
   - Design the Key - Summary
 - Conclusion
   - 771：**Jewels and Stones**
   - 3：**Longest Substring Without Repeating Characters**
-  - Two Sum III - Data structure design
+  - 170：**Two Sum III - Data structure design**
   - 454：**4Sum II**
   - 347：**Top K Frequent Elements**
-  - Unique Word Abbreviation
+  - 288：**Unique Word Abbreviation**
   - 380：**Insert Delete GetRandom O(1)**
 
 ## 二分查找
