@@ -11,25 +11,23 @@
  * @return {number[]}
  */
 const twoSum = function(nums: number[], target: number): number[] {
+  // * ['52 ms', '92.7 %', '35 MB', '28.1 %']
+
   // * value index map
   const map: Record<string, number> = {};
 
   nums.forEach((e, i) => (map[e] = i));
 
-  let i, j;
-  i = j = 0;
+  let p1 = 0;
+  let p2 = 0;
 
-  while (i < nums.length) {
-    j = map[target - nums[i]];
-
-    // * found
-    if (j !== undefined && i !== j) break;
-
-    i++;
+  for (; p1 < nums.length; p1++) {
+    p2 = map[target - nums[p1]];
+    if (p2 !== undefined && p1 !== p2) break;
   }
 
   // * exactly one solution, so no error checking
-  return [i, j];
+  return [p1, p2];
 };
 // @lc code=end
 

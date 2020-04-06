@@ -46,3 +46,14 @@ So, we should tend to use `string way` in the future. But remember it varies bet
   console.warn('array way', Date.now() - s);
 }
 ```
+
+## Data type transform is heavy
+
+752
+
+数组-字符串 双指针
+
+图
+BFS
+DFS
+DP
