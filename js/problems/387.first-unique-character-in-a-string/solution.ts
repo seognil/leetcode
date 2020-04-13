@@ -10,6 +10,8 @@
  * @return {number}
  */
 const firstUniqChar = (s: string): number => {
+  // * ['60 ms', '99.68 %', '37.9 MB', '77.5 %']
+
   const record = new Array(26).fill(0);
 
   for (let i = 0; i < s.length; i++) {

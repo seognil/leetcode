@@ -10,6 +10,8 @@
  * @return {number}
  */
 const firstUniqChar = (s: string): number => {
+  // * ['92 ms', '72.57 %', '38 MB', '77.5 %']
+
   const record = new Map<string, number>();
 
   for (let i = 0; i < s.length; i++) {

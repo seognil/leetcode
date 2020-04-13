@@ -10,6 +10,8 @@
  * @return {number}
  */
 const firstUniqChar = (s: string): number => {
+  // * ['80 ms', '93.22 %', '37.9 MB', '77.5 %']
+
   for (let i = 0; i < s.length; i++) {
     if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return i;
   }
