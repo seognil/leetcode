@@ -8,7 +8,7 @@
  * Initialize your data structure here. Set the size of the queue to be k.
  * @param {number} k
  */
-var MyCircularQueue = function(k: number) {
+var MyCircularQueue = function (k: number) {
   // @ts-ignore
   this.head = 0;
   // @ts-ignore
@@ -24,7 +24,7 @@ var MyCircularQueue = function(k: number) {
  * @param {number} value
  * @return {boolean}
  */
-MyCircularQueue.prototype.enQueue = function(value: number) {
+MyCircularQueue.prototype.enQueue = function (value: number) {
   if (this.isFull()) return false;
 
   this.tail = (this.tail + 1) % this.max;
@@ -37,7 +37,7 @@ MyCircularQueue.prototype.enQueue = function(value: number) {
  * Delete an element from the circular queue. Return true if the operation is successful.
  * @return {boolean}
  */
-MyCircularQueue.prototype.deQueue = function() {
+MyCircularQueue.prototype.deQueue = function () {
   if (this.isEmpty()) return false;
 
   this[this.head] = null;
@@ -51,7 +51,7 @@ MyCircularQueue.prototype.deQueue = function() {
  * Get the front item from the queue.
  * @return {number}
  */
-MyCircularQueue.prototype.Front = function() {
+MyCircularQueue.prototype.Front = function () {
   return this.isEmpty() ? -1 : this[this.head];
 };
 
@@ -59,7 +59,7 @@ MyCircularQueue.prototype.Front = function() {
  * Get the last item from the queue.
  * @return {number}
  */
-MyCircularQueue.prototype.Rear = function() {
+MyCircularQueue.prototype.Rear = function () {
   return this.isEmpty() ? -1 : this[this.tail];
 };
 
@@ -67,7 +67,7 @@ MyCircularQueue.prototype.Rear = function() {
  * Checks whether the circular queue is empty or not.
  * @return {boolean}
  */
-MyCircularQueue.prototype.isEmpty = function() {
+MyCircularQueue.prototype.isEmpty = function () {
   return this.length === 0;
 };
 
@@ -75,7 +75,7 @@ MyCircularQueue.prototype.isEmpty = function() {
  * Checks whether the circular queue is full or not.
  * @return {boolean}
  */
-MyCircularQueue.prototype.isFull = function() {
+MyCircularQueue.prototype.isFull = function () {
   return this.length === this.max;
 };
 

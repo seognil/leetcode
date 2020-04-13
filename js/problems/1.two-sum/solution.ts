@@ -10,7 +10,7 @@
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = function(nums: number[], target: number): number[] {
+const twoSum = (nums: number[], target: number): number[] => {
   // * ['52 ms', '92.7 %', '35 MB', '28.1 %']
 
   // * value index map

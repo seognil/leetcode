@@ -8,7 +8,7 @@
 /**
  * initialize your data structure here.
  */
-var MinStack = function() {
+var MinStack = function () {
   // * ['104 ms', '77.21 %', '44.3 MB', '50 %']
 
   // @ts-ignore
@@ -21,7 +21,7 @@ var MinStack = function() {
  * @param {number} x
  * @return {void}
  */
-MinStack.prototype.push = function(x: number) {
+MinStack.prototype.push = function (x: number) {
   this.stack.push(x);
   this.minStack.push(Math.min(x, this.getMin()));
 };
@@ -29,7 +29,7 @@ MinStack.prototype.push = function(x: number) {
 /**
  * @return {void}
  */
-MinStack.prototype.pop = function() {
+MinStack.prototype.pop = function () {
   this.stack.pop();
   this.minStack.pop();
 };
@@ -37,14 +37,14 @@ MinStack.prototype.pop = function() {
 /**
  * @return {number}
  */
-MinStack.prototype.top = function() {
+MinStack.prototype.top = function () {
   return this.stack[this.stack.length - 1];
 };
 
 /**
  * @return {number}
  */
-MinStack.prototype.getMin = function() {
+MinStack.prototype.getMin = function () {
   return this.minStack[this.minStack.length - 1];
 };
 

@@ -14,12 +14,7 @@ const reverseWords = (s: string): string => {
   return s
     .split(' ')
     .filter((e) => e)
-    .map((e) =>
-      e
-        .split('')
-        .reverse()
-        .join(''),
-    )
+    .map((e) => e.split('').reverse().join(''))
     .join(' ');
 };
 

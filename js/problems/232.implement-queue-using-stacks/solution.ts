@@ -8,7 +8,7 @@
 /**
  * Initialize your data structure here.
  */
-const MyQueue = function() {
+const MyQueue = function () {
   // * ['52 ms', '76.47 %', '33.8 MB', '75 %']
 
   // @ts-ignore
@@ -20,7 +20,7 @@ const MyQueue = function() {
  * @param {number} x
  * @return {void}
  */
-MyQueue.prototype.push = function(x: number) {
+MyQueue.prototype.push = function (x: number) {
   this.arr.push(x);
 };
 
@@ -28,7 +28,7 @@ MyQueue.prototype.push = function(x: number) {
  * Removes the element from in front of queue and returns that element.
  * @return {number}
  */
-MyQueue.prototype.pop = function(): number {
+MyQueue.prototype.pop = function (): number {
   return this.arr.shift();
 };
 
@@ -36,7 +36,7 @@ MyQueue.prototype.pop = function(): number {
  * Get the front element.
  * @return {number}
  */
-MyQueue.prototype.peek = function(): number {
+MyQueue.prototype.peek = function (): number {
   return this.arr[0];
 };
 
@@ -44,7 +44,7 @@ MyQueue.prototype.peek = function(): number {
  * Returns whether the queue is empty.
  * @return {boolean}
  */
-MyQueue.prototype.empty = function(): boolean {
+MyQueue.prototype.empty = function (): boolean {
   return this.arr.length < 1;
 };
 
