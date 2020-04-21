@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "sh build.sh"
+    "readme": "sh build.sh"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",

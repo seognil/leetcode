@@ -1,4 +1,4 @@
-import { UrlList } from './types';
+import { UrlList } from '../types';
 
 export const urlsCn: UrlList = [
   ['1', 'https://leetcode-cn.com/problems/two-sum'],

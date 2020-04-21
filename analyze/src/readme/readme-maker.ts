@@ -1,62 +1,42 @@
-import { Difficulty } from './types';
 import fs from 'fs';
 import path from 'path';
-import glob from 'glob';
-const { exec } = require('child_process');
-
-import {
-  Chapter,
-  Topic,
-  ArrayAndString,
-  QueueAndStack,
-  Recursion1,
-  Recursion2,
-  LinkedList,
-  HashTable,
-  BinarySearch,
-  BinaryTree,
-  BinarySearchTree,
-  NaryTree,
-  Trie,
-  Easy,
-  Meidum,
-  Hard,
-  Top,
-  Tencent,
-  ByteDance,
-  Teambition,
-} from './explore';
-
-import { problemsCn } from './fetch-problems-cn';
 import { mapObjIndexed } from 'ramda';
-import { urlsCn } from './urls-cn';
+
+import { Difficulty } from '../types';
+
+import * as exploreStructure from '../leetcode/explore';
+import { Topic, Chapter } from '../leetcode/explore';
+import { problemsCn } from '../leetcode/fetch-problems-cn';
+import { urlsCn } from '../leetcode/urls-cn';
+
+import { searchLangSolutions } from '../util/search-solutions';
 
 // * ================================================================================
 
-const relPath = '../..';
+const relPath = '../../..';
 
-const searchAllSolutions = (lang: string, folder: string, files: string) => {
-  const repoFolder = path.join(relPath, folder);
-
-  const pool = glob
-    .sync(path.join(repoFolder, '*', files))
-    .map((e) => path.relative(repoFolder, e))
-    .reduce((a: Record<string, string[]>, e) => {
-      const no = e.match(/\d+(?=\.)/)![0];
-      a[no] = a[no] || [];
-      a[no].unshift(e);
-      return a;
-    }, {});
-
+const mapSolutionsToSpan = (
+  solutions: Record<string, string[]>,
+  lang: string,
+  folder: string,
+): Record<string, string> => {
   return mapObjIndexed(
     (v) => v.map((e, i) => `[${lang}${i === 0 ? '' : i + 1}](${path.join(folder, e)})`).join(', '),
-    pool,
+    solutions,
   );
 };
 
-const langs = ['ts'];
+const oneStepMaker = (lang: string, folder: string, pattern: string): Record<string, string> => {
+  const solutions = searchLangSolutions(lang, folder, pattern);
+  const spans = mapSolutionsToSpan(solutions, lang, folder);
+  return spans;
+};
 
-const allSolutionsMarkdown = [searchAllSolutions('ts', 'js/problems/', 'solution*.ts')];
+const files: [string, string, string][] = [['ts', 'js/problems/', 'solution*.ts']];
+
+const langs = files.map((e) => e[0]);
+
+const allSolutionsMarkdown = files.map((e) => oneStepMaker(...e));
 
 const langTh = langs.map((e) => e + '|');
 const langHr = langs.map((e) => ':-:|');
@@ -94,20 +74,16 @@ const parseChapterToMarkdown = (chap: Chapter): string => {
     .join('\n');
 };
 
-const green = `hsl(160, 100%, 30%)`;
-const yellow = `hsl(30, 80%, 60%)`;
-const red = `hsl(0, 80%, 60%)`;
-
 const colorMap: Record<Difficulty, string> = {
-  简单: green,
-  中等: yellow,
-  困难: red,
-  Easy: green,
-  Medium: yellow,
-  Hard: red,
+  简单: `🟩`,
+  Easy: `🟩`,
+  中等: `🟧`,
+  Medium: `🟧`,
+  困难: `🟥`,
+  Hard: `🟥`,
 };
 
-const colorOf = (d: Difficulty) => `<span style="color: ${colorMap[d]}">${d}</span>`;
+const colorOf = (d: Difficulty) => `${colorMap[d]} ${d}`;
 
 const parsePageToMarkdown = (p: number | string): string => {
   if (isNaN(Number(p))) {
@@ -126,24 +102,24 @@ const parsePageToMarkdown = (p: number | string): string => {
 // * ================================================================================
 
 const allTopics = [
-  ArrayAndString,
-  QueueAndStack,
-  Recursion1,
-  Recursion2,
-  LinkedList,
-  HashTable,
-  BinarySearch,
-  BinaryTree,
-  BinarySearchTree,
-  NaryTree,
-  Trie,
-  Easy,
-  Meidum,
-  Hard,
-  Top,
-  Tencent,
-  ByteDance,
-  Teambition,
+  exploreStructure.ArrayAndString,
+  exploreStructure.QueueAndStack,
+  exploreStructure.Recursion1,
+  exploreStructure.Recursion2,
+  exploreStructure.LinkedList,
+  exploreStructure.HashTable,
+  exploreStructure.BinarySearch,
+  exploreStructure.BinaryTree,
+  exploreStructure.BinarySearchTree,
+  exploreStructure.NaryTree,
+  exploreStructure.Trie,
+  exploreStructure.Easy,
+  exploreStructure.Meidum,
+  exploreStructure.Hard,
+  exploreStructure.Top,
+  exploreStructure.Tencent,
+  exploreStructure.ByteDance,
+  exploreStructure.Teambition,
 ]
   .map((e) => parseTopicToMarkdown(e))
   .join('\n\n');

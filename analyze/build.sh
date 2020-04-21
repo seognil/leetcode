@@ -1,5 +1,5 @@
-cd src
+cd src/readme
 ts-node readme-maker.ts
-cd ../
+cd ../../
 npx doctoc ../readme.md
 npx prettier --write ../readme.md

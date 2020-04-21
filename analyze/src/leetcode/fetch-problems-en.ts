@@ -1,4 +1,4 @@
-import { LOCKED, Problem } from './types';
+import { LOCKED, Problem } from '../types';
 
 const problemsEn: Problem[] = [
   ['1', 'Two Sum', 'Easy', '45.2%'],
