@@ -1,6 +1,6 @@
-import { LOCKED, Problem } from './types';
+import { LOCKED, Problem } from '../types';
 
-const problemsEn: Problem[] = [
+export const problemsEn: Problem[] = [
   ['1', 'Two Sum', 'Easy', '45.2%'],
   ['2', 'Add Two Numbers', 'Medium', '33.0%'],
   ['3', 'Longest Substring Without Repeating Characters', 'Medium', '29.7%'],

@@ -1,4 +1,4 @@
-import { LOCKED, Problem } from './types';
+import { LOCKED, Problem } from '../types';
 
 export const problemsCn: Problem[] = [
   ['1', '两数之和', '简单', '48.0%'],
