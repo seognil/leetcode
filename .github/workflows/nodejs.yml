@@ -1,0 +1,19 @@
+name: update-repo
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: borales/actions-yarn@v2.0.0
+      - run: |
+          cd analyze
+          yarn
+          yarn update-repo
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+          GH_REPO: ${{ secrets.GH_REPO }}

@@ -1,13 +1,14 @@
 import path from 'path';
 import glob from 'glob';
 
-const relPath = '../../..';
+const relPath = path.resolve(__dirname, '../../..');
 
-export const searchLangSolutions = (
-  lang: string,
-  folder: string,
-  pattern: string,
-): Record<string, string[]> => {
+export const solutionFilePatterns: Record<string, [string, string]> = {
+  ts: ['js/problems/', 'solution*.ts'],
+};
+
+export const searchLangSolutions = (lang: string): Record<string, string[]> => {
+  const [folder, pattern] = solutionFilePatterns[lang];
   const repoFolder = path.join(relPath, folder);
 
   return glob

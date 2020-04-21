@@ -9,7 +9,7 @@ import { Topic, Chapter } from '../leetcode/explore';
 import { problemsCn } from '../leetcode/fetch-problems-cn';
 import { urlsCn } from '../leetcode/urls-cn';
 
-import { searchLangSolutions } from '../util/search-solutions';
+import { searchLangSolutions, solutionFilePatterns } from '../util/search-solutions';
 
 // * ================================================================================
 
@@ -26,17 +26,16 @@ const mapSolutionsToSpan = (
   );
 };
 
-const oneStepMaker = (lang: string, folder: string, pattern: string): Record<string, string> => {
-  const solutions = searchLangSolutions(lang, folder, pattern);
-  const spans = mapSolutionsToSpan(solutions, lang, folder);
+const oneStepMaker = (lang: string): Record<string, string> => {
+  const solutions = searchLangSolutions(lang);
+  const [folderPath] = solutionFilePatterns[lang];
+  const spans = mapSolutionsToSpan(solutions, lang, folderPath);
   return spans;
 };
 
-const files: [string, string, string][] = [['ts', 'js/problems/', 'solution*.ts']];
+const langs = Object.keys(solutionFilePatterns);
 
-const langs = files.map((e) => e[0]);
-
-const allSolutionsMarkdown = files.map((e) => oneStepMaker(...e));
+const allSolutionsMarkdown = langs.map((e) => oneStepMaker(e));
 
 const langTh = langs.map((e) => e + '|');
 const langHr = langs.map((e) => ':-:|');
