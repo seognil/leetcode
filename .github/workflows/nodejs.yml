@@ -15,5 +15,5 @@ jobs:
           yarn
           yarn update-repo
         env:
-          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+          REPO_MOD_TOKEN: ${{ secrets.REPO_MOD_TOKEN }}
           GH_REPO: ${{ secrets.GH_REPO }}
