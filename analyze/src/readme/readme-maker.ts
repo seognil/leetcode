@@ -53,7 +53,7 @@ const parseTopicToMarkdown = (topic: Topic): string => {
     ``,
     `专题地址：<${topic.link}>`,
     ``,
-    ` [返回目录 ⬆️](#TOC)`,
+    ` [返回目录 ⬆️](#目录)`,
     ``,
     `|  # | ${topic.title} | 锁 | 难度  |` + langTh,
     `| --:| :--            | :-:  | :-: |` + langHr,
