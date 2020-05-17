@@ -1,3 +1,5 @@
+import { parseAccepted } from '../helper/parse-accepted';
+
 const season0 = [
   //
   ['05/28/19', [148, 110, 830, 276, 734]],
@@ -116,7 +118,7 @@ const myProgressSeason1 = [
       [437, ['88 ms', '68.12 %', '36.6 MB', '99.27 %']],
       [31, ['60 ms', '96.52 %', '35 MB', '41.43 %']],
       [51, ['60 ms', '98.79 %', '36.4 MB', '88.50 %']],
-      [52, ['64 ms', '67.03 %', '34.3 MB', '85.86 %']],
+      [52, ['60 ms', '80.28 %', '34.3 MB', '100 %']],
     ],
   },
   {
@@ -225,8 +227,6 @@ const myProgress3 = [
 
 // 1 ['56 ms', '98.41 %', '35 MB', '42.45 %']
 // 20 ['56 ms', '84.27 %', '34 MB', '57.31 %']
-
-import { parseAccepted } from '../helper/parse-accepted';
 
 const queueAndStack = [
   //

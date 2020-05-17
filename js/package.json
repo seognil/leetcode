@@ -2,12 +2,15 @@
   "scripts": {
     "start": "tsc-watch -p tsconfig-build.json --onSuccess 'pretty-quick --pattern \"**/*.js\"' --onFirstSuccess 'jest --watch'",
     "test:all": "jest",
-    "format:all": "eslint --fix . && prettier --write '{,!(node_modules|dist|build|coverage)/**/}*.*' '!*.{log,lock,map}' '!**/.*' '!package-lock.json'",
-    "format:staged": "pretty-quick --staged && lint-staged",
+    "lint:all": "eslint --fix . && prettier --write '{,!(node_modules|dist|build|coverage)/**/}*.*' '!*.{log,lock,map}' '!**/.*' '!package-lock.json'",
+    "lint:staged": "lint-staged",
     "analyze": "ts-node analyze/analyze"
   },
   "lint-staged": {
-    "*.{js,ts}": "eslint --fix"
+    "*.{ts,js,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "husky": {
     "hooks": {
@@ -21,7 +24,9 @@
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
     "@types/prettier": "^2.0.0",
+    "@types/pretty-quick": "^2.0.0",
     "@types/ramda": "^0.27.3",
+    "@types/tsc-watch": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "chalk": "^4.0.0",

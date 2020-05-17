@@ -575,15 +575,22 @@
   resolved "https://registry.npm.taobao.org/@types/parse-json/download/@types/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
+"@types/prettier@*", "@types/prettier@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-2.0.0.tgz#dc85454b953178cc6043df5208b9e949b54a3bc4"
+  integrity sha1-3IVFS5UxeMxgQ99SCLnpSbVKO8Q=
+
 "@types/prettier@^1.19.0":
   version "1.19.1"
   resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-1.19.1.tgz#33509849f8e679e4add158959fdb086440e9553f"
   integrity sha1-M1CYSfjmeeSt0ViVn9sIZEDpVT8=
 
-"@types/prettier@^2.0.0":
+"@types/pretty-quick@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-2.0.0.tgz#dc85454b953178cc6043df5208b9e949b54a3bc4"
-  integrity sha1-3IVFS5UxeMxgQ99SCLnpSbVKO8Q=
+  resolved "https://registry.npm.taobao.org/@types/pretty-quick/download/@types/pretty-quick-2.0.0.tgz#13a71a31f7efd18be0c85ce896db97d85815ea10"
+  integrity sha1-E6caMffv0YvgyFzoltuX2FgV6hA=
+  dependencies:
+    "@types/prettier" "*"
 
 "@types/ramda@^0.27.3":
   version "0.27.3"
@@ -596,6 +603,13 @@
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/@types/stack-utils/download/@types/stack-utils-1.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fstack-utils%2Fdownload%2F%40types%2Fstack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha1-CoUdO9lkmPolwzq3J47TvWXwbD4=
+
+"@types/tsc-watch@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/tsc-watch/-/tsc-watch-4.2.0.tgz#5a9553c4652e8feffdb3735e75f78b5191384acc"
+  integrity sha512-hND5B6WVQcO9QdgSdRHeougv4EAEeg5UYMrVACbFfFJ/EaEbdJgYd+mHtIVwgrHSf1eucQRxuFQ9b2jIlnsT7A==
+  dependencies:
+    "@types/node" "*"
 
 "@types/yargs-parser@*":
   version "15.0.0"
@@ -1592,7 +1606,7 @@ execa@^1.0.0:
 
 execa@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npm.taobao.org/execa/download/execa-2.1.0.tgz#e5d3ecd837d2a60ec50f3da78fd39767747bbe99"
+  resolved "https://registry.npm.taobao.org/execa/download/execa-2.1.0.tgz?cache=0&sync_timestamp=1588947395743&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-2.1.0.tgz#e5d3ecd837d2a60ec50f3da78fd39767747bbe99"
   integrity sha1-5dPs2DfSpg7FDz2nj9OXZ3R7vpk=
   dependencies:
     cross-spawn "^7.0.0"
@@ -3209,7 +3223,7 @@ npm-run-path@^2.0.0:
 
 npm-run-path@^3.0.0:
   version "3.1.0"
-  resolved "https://registry.npm.taobao.org/npm-run-path/download/npm-run-path-3.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnpm-run-path%2Fdownload%2Fnpm-run-path-3.1.0.tgz#7f91be317f6a466efed3c9f2980ad8a4ee8b0fa5"
+  resolved "https://registry.npm.taobao.org/npm-run-path/download/npm-run-path-3.1.0.tgz#7f91be317f6a466efed3c9f2980ad8a4ee8b0fa5"
   integrity sha1-f5G+MX9qRm7+08nymArYpO6LD6U=
   dependencies:
     path-key "^3.0.0"
