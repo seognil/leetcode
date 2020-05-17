@@ -26,30 +26,59 @@ const mapSolutionsToSpan = (
   );
 };
 
-const oneStepMaker = (lang: string): Record<string, string> => {
+const langs = Object.keys(solutionFilePatterns);
+
+const langSolMdMapList: Record<string, string>[] = langs.map((lang) => {
   const solutions = searchLangSolutions(lang);
   const [folderPath] = solutionFilePatterns[lang];
   const spans = mapSolutionsToSpan(solutions, lang, folderPath);
   return spans;
-};
+});
 
-const langs = Object.keys(solutionFilePatterns);
+// * langSolMdPoolList:
+// [
+//   {
+//     '1': '[ts](js/problems/1.two-sum/solution.ts)',
+//     '2': '[ts](js/problems/2.add-two-numbers/solution.ts)',
+//   },
+// ];
 
-const allSolutionsMarkdown = langs.map((e) => oneStepMaker(e));
+// * ----------------
 
 const langTh = langs.map((e) => e + '|');
 const langHr = langs.map((e) => ':-:|');
 const langEmpty = langs.map((e) => ' |');
 const langBar = langs.map((e) => '-|');
 
-const solutionsOfNo = (no: string) =>
-  ` ${allSolutionsMarkdown.map((pool) => pool[no] || '').join(' | ')} |`;
+const allLangSolsOfNo = (no: string): string =>
+  ` ${langSolMdMapList.map((pool) => pool[no] || '').join(' | ')} |`;
 
 // * ----------------------------------------------------------------
 
+const mapTopicToSolvedProgress = (topic: Topic): string => {
+  const allPData =
+    topic.chapters.map((e) => e.pages.filter((e) => typeof e === 'number')).flat(Infinity) as
+    number[];
+  const allP = allPData.length;
+  const allS = allPData.filter((no) => langSolMdMapList.some((map) => map[no] !== undefined))
+    .length;
+
+  const lockedPData = allPData.filter(
+    (no) => problemsCn.find((e) => Number(e[0]) === no)?.[4] !== undefined,
+  );
+  const lockedS = lockedPData.filter((no) => langSolMdMapList.some((map) => map[no] !== undefined))
+    .length;
+  const lockedP = lockedPData.length;
+
+  const normalP = allP - lockedP;
+  const normalS = allS - lockedS;
+
+  return `(${normalS}/${normalP}${lockedP ? `, ${lockedS}/${lockedP}` : ``})`;
+};
+
 const parseTopicToMarkdown = (topic: Topic): string => {
   return [
-    `### ${topic.title}`,
+    `### ${topic.title} ${mapTopicToSolvedProgress(topic)}`,
     ``,
     `专题地址：<${topic.link}>`,
     ``,
@@ -93,12 +122,12 @@ const parsePageToMarkdown = (p: number | string): string => {
     const [, title, difficuly, , locked] = problemsCn.find((e) => e[0] === no)!;
     return (
       `| **${no}** | [${title}][${no}] | ${locked ? '🔐' : ''} | ${colorOf(difficuly)} |` +
-      solutionsOfNo(no)
+      allLangSolsOfNo(no)
     );
   }
 };
 
-// * ================================================================================
+// * ================================================================================ output
 
 const allTopics = [
   exploreStructure.ArrayAndString,

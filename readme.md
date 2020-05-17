@@ -9,24 +9,24 @@
   - [概念速览](#%E6%A6%82%E5%BF%B5%E9%80%9F%E8%A7%88)
   - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
 - [专题](#%E4%B8%93%E9%A2%98)
-  - [数组和字符串](#%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2)
-  - [队列 & 栈](#%E9%98%9F%E5%88%97--%E6%A0%88)
-  - [Recursion I](#recursion-i)
-  - [Recursion II](#recursion-ii)
-  - [链表](#%E9%93%BE%E8%A1%A8)
-  - [哈希表](#%E5%93%88%E5%B8%8C%E8%A1%A8)
-  - [二分查找](#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE)
-  - [二叉树](#%E4%BA%8C%E5%8F%89%E6%A0%91)
-  - [二叉搜索树](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91)
-  - [N 叉树](#n-%E5%8F%89%E6%A0%91)
-  - [前缀树](#%E5%89%8D%E7%BC%80%E6%A0%91)
-  - [初级算法](#%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95)
-  - [中级算法](#%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95)
-  - [高级算法](#%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95)
-  - [算法面试题汇总](#%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB)
-  - [腾讯](#%E8%85%BE%E8%AE%AF)
-  - [字节跳动](#%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8)
-  - [Teambition](#teambition)
+  - [数组和字符串 (21/21)](#%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2-2121)
+  - [队列 & 栈 (18/18, 0/2)](#%E9%98%9F%E5%88%97--%E6%A0%88-1818-02)
+  - [Recursion I (12/12)](#recursion-i-1212)
+  - [Recursion II (4/14, 0/2)](#recursion-ii-414-02)
+  - [链表 (15/15)](#%E9%93%BE%E8%A1%A8-1515)
+  - [哈希表 (7/20, 0/4)](#%E5%93%88%E5%B8%8C%E8%A1%A8-720-04)
+  - [二分查找 (19/22, 0/2)](#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-1922-02)
+  - [二叉树 (4/13)](#%E4%BA%8C%E5%8F%89%E6%A0%91-413)
+  - [二叉搜索树 (2/10)](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-210)
+  - [N 叉树 (0/4, 0/1)](#n-%E5%8F%89%E6%A0%91-04-01)
+  - [前缀树 (0/7, 0/2)](#%E5%89%8D%E7%BC%80%E6%A0%91-07-02)
+  - [初级算法 (35/49)](#%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95-3549)
+  - [中级算法 (11/45)](#%E4%B8%AD%E7%BA%A7%E7%AE%97%E6%B3%95-1145)
+  - [高级算法 (4/47)](#%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95-447)
+  - [算法面试题汇总 (23/75)](#%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB-2375)
+  - [腾讯 (26/53)](#%E8%85%BE%E8%AE%AF-2653)
+  - [字节跳动 (12/38)](#%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-1238)
+  - [Teambition (0/20)](#teambition-020)
 - [题库](#%E9%A2%98%E5%BA%93)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -78,7 +78,7 @@ LeetCode 刷题计划，
 
 ## 专题
 
-### 数组和字符串
+### 数组和字符串 (21/21)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/array-and-string/>
 
@@ -113,7 +113,7 @@ LeetCode 刷题计划，
 |  **26** | [删除排序数组中的重复项][26]      |     | 🟩 简单 |                                             [ts](js/problems/26.remove-duplicates-from-sorted-array/solution.ts)                                             |
 | **283** | [移动零][283]                     |     | 🟩 简单 |                                                        [ts](js/problems/283.move-zeroes/solution.ts)                                                         |
 
-### 队列 & 栈
+### 队列 & 栈 (18/18, 0/2)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/queue-stack/>
 
@@ -147,7 +147,7 @@ LeetCode 刷题计划，
 | **542** | [01 矩阵][542]               |     | 🟧 中等 |                                                              [ts](js/problems/542.01-matrix/solution.ts)                                                               |
 | **841** | [钥匙和房间][841]            |     | 🟧 中等 |                                                            [ts](js/problems/841.keys-and-rooms/solution.ts)                                                            |
 
-### Recursion I
+### Recursion I (12/12)
 
 专题地址：<https://leetcode.com/explore/learn/card/recursion-i/>
 
@@ -173,7 +173,7 @@ LeetCode 刷题计划，
 | **779** | [第 K 个语法符号][779]     |     | 🟧 中等 |      [ts](js/problems/779.k-th-symbol-in-grammar/solution.ts), [ts2](js/problems/779.k-th-symbol-in-grammar/solution-readable.ts)       |
 |  **95** | [不同的二叉搜索树 II][95]  |     | 🟧 中等 |                                     [ts](js/problems/95.unique-binary-search-trees-ii/solution.ts)                                      |
 
-### Recursion II
+### Recursion II (4/14, 0/2)
 
 专题地址：<https://leetcode.com/explore/learn/card/recursion-ii/>
 
@@ -202,7 +202,7 @@ LeetCode 刷题计划，
 |  **17** | [电话号码的字母组合][17]                |     | 🟧 中等 |                                                                                                                                                                                                                               |
 | **218** | [天际线问题][218]                       |     | 🟥 困难 |                                                                                                                                                                                                                               |
 
-### 链表
+### 链表 (15/15)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/linked-list/>
 
@@ -231,7 +231,7 @@ LeetCode 刷题计划，
 | **138** | [复制带随机指针的链表][138]     |     | 🟧 中等 |                                                                 [ts](js/problems/138.copy-list-with-random-pointer/solution.ts)                                                                  |
 |  **61** | [旋转链表][61]                  |     | 🟧 中等 |                                                                           [ts](js/problems/61.rotate-list/solution.ts)                                                                           |
 
-### 哈希表
+### 哈希表 (7/20, 0/4)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/hash-table/>
 
@@ -269,7 +269,7 @@ LeetCode 刷题计划，
 | **288** | [单词的唯一缩写][288]                   | 🔐  | 🟧 中等 |                                                                                                                                                                                                                                   |
 | **380** | [常数时间插入、删除和获取随机元素][380] |     | 🟧 中等 |                                                                                                                                                                                                                                   |
 
-### 二分查找
+### 二分查找 (19/22, 0/2)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/binary-search/>
 
@@ -310,7 +310,7 @@ LeetCode 刷题计划，
 | **719** | [找出第 k 小的距离对][719]                       |     | 🟥 困难 |                                                                                                                                                                                             |
 | **410** | [分割数组的最大值][410]                          |     | 🟥 困难 |                                                                                                                                                                                             |
 
-### 二叉树
+### 二叉树 (4/13)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/>
 
@@ -335,7 +335,7 @@ LeetCode 刷题计划，
 | **236** | [二叉树的最近公共祖先][236]                |     | 🟧 中等 |                                                                                                                                           |
 | **297** | [二叉树的序列化与反序列化][297]            |     | 🟥 困难 |                                                                                                                                           |
 
-### 二叉搜索树
+### 二叉搜索树 (2/10)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/>
 
@@ -358,7 +358,7 @@ LeetCode 刷题计划，
 | **110** | [平衡二叉树][110]                 |     | 🟩 简单 |                                                                                                                                                                                                                               |
 | **108** | [将有序数组转换为二叉搜索树][108] |     | 🟩 简单 |                                                                                                                                                                                                                               |
 
-### N 叉树
+### N 叉树 (0/4, 0/1)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/n-ary-tree/>
 
@@ -375,7 +375,7 @@ LeetCode 刷题计划，
 |    \#\# | **小结**                       |     |         |     |
 | **428** | [序列化和反序列化 N 叉树][428] | 🔐  | 🟥 困难 |     |
 
-### 前缀树
+### 前缀树 (0/7, 0/2)
 
 专题地址：<https://leetcode-cn.com/explore/learn/card/trie/>
 
@@ -397,7 +397,7 @@ LeetCode 刷题计划，
 | **425** | [单词方块][425]                      | 🔐  | 🟥 困难 |     |
 | **336** | [回文对][336]                        |     | 🟥 困难 |     |
 
-### 初级算法
+### 初级算法 (35/49)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/>
 
@@ -464,7 +464,7 @@ LeetCode 刷题计划，
 |  **20** | [有效的括号][20]                  |     | 🟩 简单 |                                                                                        [ts](js/problems/20.valid-parentheses/solution.ts)                                                                                         |
 | **268** | [缺失数字][268]                   |     | 🟩 简单 |                                                                                                                                                                                                                                   |
 
-### 中级算法
+### 中级算法 (11/45)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/top-interview-questions-medium/>
 
@@ -527,7 +527,7 @@ LeetCode 刷题计划，
 | **169** | [多数元素][169]                                  |     | 🟩 简单 |                                                                                                                                                                                             |
 | **621** | [任务调度器][621]                                |     | 🟧 中等 |                                                                                                                                                                                             |
 
-### 高级算法
+### 高级算法 (4/47)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/top-interview-questions-hard/>
 
@@ -592,7 +592,7 @@ LeetCode 刷题计划，
 | **218** | [天际线问题][218]                 |     | 🟥 困难 |                                                                                                                                                                        |
 |  **84** | [柱状图中最大的矩形][84]          |     | 🟥 困难 |                                                                                                                                                                        |
 
-### 算法面试题汇总
+### 算法面试题汇总 (23/75)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/top-interview-quesitons/>
 
@@ -689,7 +689,7 @@ LeetCode 刷题计划，
 |    \#\# | **模拟面试**                            |     |         |                                                                                                                                                                                                                                   |
 | **202** | [快乐数][202]                           |     | 🟩 简单 |                                                                                                                                                                                                                                   |
 
-### 腾讯
+### 腾讯 (26/53)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/tencent/>
 
@@ -759,7 +759,7 @@ LeetCode 刷题计划，
 |    \#\# | **附加**                         |     |         |                                                                                                                       |
 | **292** | [Nim 游戏][292]                  |     | 🟩 简单 |                                                                                                                       |
 
-### 字节跳动
+### 字节跳动 (12/38)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/bytedance/>
 
@@ -812,7 +812,7 @@ LeetCode 刷题计划，
 | **393** | [UTF-8 编码验证][393]          |     | 🟧 中等 |                                                                                                 |
 | **176** | [第二高的薪水][176]            |     | 🟩 简单 |                                                                                                 |
 
-### Teambition
+### Teambition (0/20)
 
 专题地址：<https://leetcode-cn.com/explore/interview/card/teambition/>
 
