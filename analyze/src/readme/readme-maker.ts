@@ -1,4 +1,3 @@
-import fs from 'fs';
 import path from 'path';
 import { mapObjIndexed } from 'ramda';
 
@@ -10,6 +9,7 @@ import { problemsCn } from '../leetcode/fetch-problems-cn';
 import { urlsCn } from '../leetcode/urls-cn';
 
 import { searchLangSolutions, solutionFilePatterns } from '../util/search-solutions';
+import { readFile, writeFile } from 'fs/promises';
 
 // * ================================================================================
 
@@ -50,24 +50,27 @@ const langHr = langs.map((e) => ':-:|');
 const langEmpty = langs.map((e) => ' |');
 const langBar = langs.map((e) => '-|');
 
-const allLangSolsOfNo = (no: string): string =>
-  ` ${langSolMdMapList.map((pool) => pool[no] || '').join(' | ')} |`;
+const allLangSolsOfNo = (PID: string): string =>
+  ` ${langSolMdMapList.map((pool) => pool[PID] || '').join(' | ')} |`;
 
 // * ----------------------------------------------------------------
 
+
+
 const mapTopicToSolvedProgress = (topic: Topic): string => {
-  const allPData =
-    topic.chapters.map((e) => e.pages.filter((e) => typeof e === 'number')).flat(Infinity) as
-    number[];
+  const allPData = topic.chapters
+    .map((e) => e.pages.filter((e) => typeof e === 'number'))
+    .flat(Infinity) as number[];
   const allP = allPData.length;
-  const allS = allPData.filter((no) => langSolMdMapList.some((map) => map[no] !== undefined))
+  const allS = allPData.filter((PID) => langSolMdMapList.some((map) => map[PID] !== undefined))
     .length;
 
   const lockedPData = allPData.filter(
-    (no) => problemsCn.find((e) => Number(e[0]) === no)?.[4] !== undefined,
+    (PID) => problemsCn.find((e) => Number(e[0]) === PID)?.[4] !== undefined,
   );
-  const lockedS = lockedPData.filter((no) => langSolMdMapList.some((map) => map[no] !== undefined))
-    .length;
+  const lockedS = lockedPData.filter((PID) =>
+    langSolMdMapList.some((map) => map[PID] !== undefined),
+  ).length;
   const lockedP = lockedPData.length;
 
   const normalP = allP - lockedP;
@@ -118,11 +121,13 @@ const parsePageToMarkdown = (p: number | string): string => {
     // return `|  -- | ${p} | -- | -- |` + langBar;
     return '';
   } else {
-    const no = String(p);
-    const [, title, difficuly, , locked] = problemsCn.find((e) => e[0] === no)!;
+    const PID = String(p);
+    const e = problemsCn.find((e) => e[0] === PID)!
+    if (e===undefined) console.log('lcdebug 6c0aca', e,PID)
+    const [, title, difficuly, , locked] = problemsCn.find((e) => e[0] === PID)!;
     return (
-      `| **${no}** | [${title}][${no}] | ${locked ? '🔐' : ''} | ${colorOf(difficuly)} |` +
-      allLangSolsOfNo(no)
+      `| **${PID}** | [${title}][${PID}] | ${locked ? '🔐' : ''} | ${colorOf(difficuly)} |` +
+      allLangSolsOfNo(PID)
     );
   }
 };
@@ -152,12 +157,16 @@ const allTopics = [
   .map((e) => parseTopicToMarkdown(e))
   .join('\n\n');
 
-const allLinks = urlsCn.map(([no, url]) => `[${no}]: ${url}`).join('\n');
+const allLinks = urlsCn.map(([PID, url]) => `[${PID}]: ${url}`).join('\n');
 
-const mdSkeleton = fs.readFileSync('./readme-skeleton.md', { encoding: 'utf8' });
+(async () => {
+  const mdSkeleton = await readFile('./readme-skeleton.md', { encoding: 'utf8' });
 
-const output = mdSkeleton
-  .replace('<!-- TopicsPlaceHolder -->', allTopics)
-  .replace('<!-- LinksPlaceHolder -->', allLinks);
+  const output = mdSkeleton
+    .replace('<!-- TopicsPlaceHolder -->', allTopics)
+    .replace('<!-- LinksPlaceHolder -->', allLinks);
 
-fs.writeFileSync(path.join(relPath, 'readme.md'), output);
+  console.log('lcdebug 01beee', output);
+
+  writeFile(path.join(relPath, 'readme.md'), output);
+})();
