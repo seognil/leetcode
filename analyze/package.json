@@ -1,17 +1,23 @@
 {
   "scripts": {
+    "fetch": "ts-node src/util/fetcher-cn.ts",
     "readme": "sh build.sh",
     "update-repo": "ts-node src/update-repo/index.ts"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.1",
-    "@types/node": "^13.11.0",
-    "@types/ramda": "^0.27.3",
-    "doctoc": "^1.4.0",
+    "@types/glob": "^7.1.3",
+    "@types/node": "^15.0.1",
+    "@types/node-fetch": "^2.5.10",
+    "@types/prettier": "^2.2.3",
+    "@types/ramda": "^0.27.40",
+    "doctoc": "^2.0.0",
     "glob": "^7.1.6",
-    "prettier": "^2.0.3",
-    "ramda": "^0.27.0",
-    "ts-node": "^8.9.0",
-    "typescript": "^3.8.3"
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "ramda": "^0.27.1"
   }
 }

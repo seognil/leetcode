@@ -1,6 +1,6 @@
-import { UrlList } from '../types';
+import { UrlItem } from '../types';
 
-export const urlsEn: UrlList = [
+export const urlsEn: UrlItem[] = [
   ['1', 'https://leetcode.com/problems/two-sum'],
   ['2', 'https://leetcode.com/problems/add-two-numbers'],
   ['3', 'https://leetcode.com/problems/longest-substring-without-repeating-characters'],
