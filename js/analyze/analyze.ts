@@ -855,3 +855,11 @@ const others = [
   [331, ['48 ms', '94.03 %', '34.9 MB', '100 %']],
   [539, ['84 ms', '85.42 %', '38.7 MB', '100 %']],
 ];
+
+[[5, ['108 ms', '75.67 %', '40.1 MB', '90.3 %']]];
+// parseAccepted(`
+// Accepted
+// 176/176 cases passed (108 ms)
+// Your runtime beats 75.67 % of javascript submissions
+// Your memory usage beats 90.3 % of javascript submissions (40.1 MB)
+// `);
