@@ -1,11 +1,12 @@
 import { writeFile } from 'fs/promises';
 import fetch from 'node-fetch';
 import { resolve } from 'path';
+import { TitleCn } from '../leetcode/title-cn';
 import { Difficulty, ProblemItem, UrlItem } from '../types';
 
 // * ================================================================================
 
-const pListData = fetch('https://leetcode-cn.com/api/problems/algorithms/')
+const pListData = fetch('https://leetcode-cn.com/api/problems/all/')
   .then((response) => response.json())
   .then((result: ListFetchResult) =>
     result.stat_status_pairs.sort((a, b) => a.stat.question_id - b.stat.question_id),
@@ -17,7 +18,8 @@ pListData
   .then((list): ProblemItem[] =>
     list.map((e) => [
       e.stat.frontend_question_id,
-      e.stat.question__title,
+      // @ts-ignore
+      TitleCn[e.stat.frontend_question_id] ?? e.stat.question__title,
       ['简单', '中等', '困难'][e.difficulty.level - 1] as Difficulty,
       `${((e.stat.total_acs / e.stat.total_submitted) * 100).toFixed(2)}%`,
       e.paid_only ? 'LOCKED' : undefined,
